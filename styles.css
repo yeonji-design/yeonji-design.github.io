@@ -7,6 +7,17 @@
     scrollbar-color: #4a4a4a #1a1a1a;
 }
 
+/* Text selection styling */
+::selection {
+    background-color: #D0FE05;
+    color: #1a1a1a;
+}
+
+::-moz-selection {
+    background-color: #D0FE05;
+    color: #1a1a1a;
+}
+
 
 @font-face {
     font-family: 'Aspekta Variable';
@@ -578,3 +589,73 @@ body {
       transform: translate(-22px,5px) skew(21deg); 
     }
   }
+
+/* Custom cursor: dual ring + difference blend (fine pointer only) */
+.custom-cursor {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    overflow: visible;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.is-visible {
+    opacity: 1;
+}
+
+.custom-cursor__ball {
+    position: fixed;
+    top: 0;
+    left: 0;
+    will-change: transform;
+}
+
+.custom-cursor__ball--big .custom-cursor__ball-core {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    transform-origin: center center;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.custom-cursor__ball--big svg {
+    display: none;
+}
+
+.custom-cursor.is-hover .custom-cursor__ball--big .custom-cursor__ball-core {
+    transform: scale(4);
+}
+
+.custom-cursor__ball--small svg {
+    display: block;
+}
+
+.custom-cursor__ball--small circle {
+    fill: #ffffff;
+}
+
+@media (pointer: fine) {
+    body.custom-cursor--active {
+        cursor: none;
+    }
+
+    body.custom-cursor--active input:not([type="checkbox"]):not([type="radio"]),
+    body.custom-cursor--active textarea,
+    body.custom-cursor--active select {
+        cursor: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.custom-cursor--active {
+        cursor: auto;
+    }
+
+    .custom-cursor {
+        display: none !important;
+    }
+}

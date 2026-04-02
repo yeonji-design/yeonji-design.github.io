@@ -1,3 +1,114 @@
+// Custom cursor: difference-blend rings, scales on links (no GSAP)
+(function initCustomCursor() {
+    function shouldSkip() {
+        if (!window.matchMedia) {
+            return true;
+        }
+        if (window.matchMedia('(pointer: coarse)').matches) {
+            return true;
+        }
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return true;
+        }
+        return false;
+    }
+
+    function setup() {
+        if (shouldSkip()) {
+            return;
+        }
+
+        var root = document.createElement('div');
+        root.className = 'custom-cursor';
+        root.setAttribute('aria-hidden', 'true');
+        root.innerHTML =
+            '<div class="custom-cursor__ball custom-cursor__ball--big">' +
+            '<div class="custom-cursor__ball-core">' +
+            '<svg width="30" height="30" aria-hidden="true" focusable="false">' +
+            '<circle cx="15" cy="15" r="12"></circle></svg></div></div>' +
+            '<div class="custom-cursor__ball custom-cursor__ball--small">' +
+            '<svg width="10" height="10" aria-hidden="true" focusable="false">' +
+            '<circle cx="5" cy="5" r="4"></circle></svg></div>';
+
+        document.body.appendChild(root);
+        document.body.classList.add('custom-cursor--active');
+
+        var bigOuter = root.querySelector('.custom-cursor__ball--big');
+        var smallBall = root.querySelector('.custom-cursor__ball--small');
+        var mx = -100;
+        var my = -100;
+        var bx = -100;
+        var by = -100;
+        var sx = -100;
+        var sy = -100;
+        var kBig = 0.22;
+        var kSmall = 0.55;
+        var hasMoved = false;
+
+        function tick() {
+            bx += (mx - 15 - bx) * kBig;
+            by += (my - 15 - by) * kBig;
+            sx += (mx - 5 - sx) * kSmall;
+            sy += (my - 7 - sy) * kSmall;
+            bigOuter.style.transform = 'translate3d(' + bx + 'px,' + by + 'px,0)';
+            smallBall.style.transform = 'translate3d(' + sx + 'px,' + sy + 'px,0)';
+            requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+
+        document.addEventListener(
+            'mousemove',
+            function (e) {
+                mx = e.clientX;
+                my = e.clientY;
+                hasMoved = true;
+                root.classList.add('is-visible');
+            },
+            { passive: true }
+        );
+
+        document.documentElement.addEventListener('mouseleave', function () {
+            root.classList.remove('is-visible');
+        });
+
+        document.documentElement.addEventListener('mouseenter', function () {
+            if (hasMoved) {
+                root.classList.add('is-visible');
+            }
+        });
+
+        var hoverSelector =
+            'a, button, .project-card, input[type="submit"], input[type="button"], input[type="reset"], summary';
+
+        document.addEventListener('mouseover', function (e) {
+            var t = e.target;
+            if (t.closest && t.closest(hoverSelector)) {
+                root.classList.add('is-hover');
+            }
+        });
+
+        document.addEventListener('mouseout', function (e) {
+            var from = e.target;
+            var to = e.relatedTarget;
+            var fromMatch = from.closest && from.closest(hoverSelector);
+            if (!fromMatch) {
+                return;
+            }
+            if (to && fromMatch.contains(to)) {
+                return;
+            }
+            root.classList.remove('is-hover');
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setup);
+    } else {
+        setup();
+    }
+})();
+
 // Navigation and interactivity
 document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for any internal links
