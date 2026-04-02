@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI Use Case Registry | Yeonji Kim</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="header-title glitch" title="yeonji">yeonji</a>
+        </div>
+        <div class="header-right">
+            <a href="Resume_2026.pdf" class="header-link" target="_blank">
+                Resume <span class="external-icon">↗</span>
+            </a>
+        </div>
+    </header>
+    
+
+    <!-- Project Content -->
+    <main class="project-main">
+        <div class="project-container">
+            <div class="project-header">
+                <div class="project-header-text">
+                    <h1 class="project-title">GenOS Onboarding Experience</h1>
+                <p class="project-subtitle">Streamlining Intuit’s internal GenAI development process</p>
+                <div class="project-tags">
+                    <span class="tag">platform</span>
+                    <span class="tag">internal tool</span>
+                    <span class="tag">AI/ML</span>
+                    <span class="tag">enterprise</span>
+                </div>
+                </div>
+                <img src="image/test.png" alt="GenOS Onboarding Experience" class="project-header-image">
+            </div>
+
+            <div class="project-content">
+                <div class="project-section">
+                    <h2>Overview</h2>
+                    <p>I designed the onboarding experience for Intuit’s GenOS — an internal GenAI system that powers products like QuickBooks, TurboTax, and Mailchimp. The goal was to help product teams easily onboard to the GenOS ecosystem and navigate reviews from legal, security, and AI experts without slowing down innovation.</p>
+                    <div class="project-meta">
+                        <div class="project-meta-item">
+                            <span class="project-meta-label">My Role</span>
+                            <span class="project-meta-value">Product Designer</span>
+                        </div>
+                        <div class="project-meta-item">
+                            <span class="project-meta-label">Timeline</span>
+                            <span class="project-meta-value">4 months</span>
+                        </div>
+                        <div class="project-meta-item">
+                            <span class="project-meta-label">Team</span>
+                            <span class="project-meta-value">1 PM, 5 Engineers</span>
+                        </div>
+                        <div class="project-meta-item">
+                            <span class="project-meta-label">Tools</span>
+                            <span class="project-meta-value">Figma</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>Context & Problem</h2>
+                    <p>Product teams across Intuit were beginning to build GenAI features, but onboarding to GenOS required navigating scattered resources, unclear processes, and multiple review steps. This complexity created confusion and delays for product teams and reviewers alike.</p>
+                    <div class="pain-columns">
+                        <div class="pain-column">
+                            <span class="pain-column-icon" aria-hidden="true">🛠️</span>
+                            <h3 class="pain-column-title">Product Teams</h3>
+                            <p>Builders of GenAI features</p>
+                        </div>
+                        <div class="pain-column">
+                            <span class="pain-column-icon" aria-hidden="true">📋</span>
+                            <h3 class="pain-column-title">Reviewers</h3>
+                            <p>Legal, Security, and AI experts</p>
+                        </div>
+                        <div class="pain-column">
+                            <span class="pain-column-icon" aria-hidden="true">📊</span>
+                            <h3 class="pain-column-title">Program Managers</h3>
+                            <p>Managers of GenAI use cases</p>
+                        </div>
+                    </div>
+                    <p>The existing process took up to three weeks, involving countless back-and-forth messages and manual tracking in spreadsheets. Product teams didn’t know what steps to complete or when. Reviewers from Legal, Security, and AI teams lacked visibility into pending tasks, and program managers struggled to track hundreds of use cases across the company.</p>
+                        <p>In short — everyone wanted to move faster, but the process wasn’t designed to scale.</p>
+                        <div class="pain-columns">
+                            <div class="pain-column">
+                                <span class="pain-column-icon" aria-hidden="true">🛠️</span>
+                                <h3 class="pain-column-title">Product Teams</h3>
+                                <ul class="pain-list">
+                                    <li>Scattered resources, unclear process steps</li>
+                                    <li>Didn't know what to complete or when</li>
+                                    <li>Weeks of back-and-forth messages</li>
+                                </ul>
+                            </div>
+                            <div class="pain-column">
+                                <span class="pain-column-icon" aria-hidden="true">📋</span>
+                                <h3 class="pain-column-title">Reviewers</h3>
+                                <ul class="pain-list">
+                                    <li>Lacked visibility into pending tasks</li>
+                                    <li>Manual tracking across Legal, Security, AI</li>
+                                    <li>Bottlenecks from unclear request status</li>
+                                </ul>
+                            </div>
+                            <div class="pain-column">
+                                <span class="pain-column-icon" aria-hidden="true">📊</span>
+                                <h3 class="pain-column-title">Program Managers</h3>
+                                <ul class="pain-list">
+                                    <li>Hundreds of use cases in spreadsheets</li>
+                                    <li>No single source of truth</li>
+                                    <li>Difficulty scaling oversight</li>
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>Design Solution</h2>
+                    <p>I designed a centralized platform where teams could discover resources, complete onboarding steps, and track review progress — all in one place.</p>
+                    <p>Key design decisions included:</p>
+                    <ul class="design-decisions">
+                        <li><strong>Modular, non-linear onboarding:</strong> Allowed teams to complete steps in the order that matched their workflow while maintaining progress tracking.</li>
+                        <li><strong>Integrated dashboards:</strong> Displayed priorities, owners, and due dates for each review type to reduce back-and-forth communication.</li>
+                        <li><strong>Central resource hub:</strong> Consolidated documentation and templates so teams no longer needed to search across multiple systems.</li>
+                        <li><strong>Visibility for reviewers and program managers:</strong> Provided real-time tracking of all GenAI use cases, replacing manual spreadsheet management.</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Key Features</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h3>Smart Search & Discovery</h3>
+                            <p>Advanced filtering and search capabilities to help teams find relevant use cases quickly.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Collaboration Tools</h3>
+                            <p>Built-in communication features to connect teams and share knowledge.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Impact Tracking</h3>
+                            <p>Metrics and analytics to measure the success and adoption of AI initiatives.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Template Library</h3>
+                            <p>Reusable templates and components to accelerate development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>Impact</h2>
+                    <div class="impact-stats">
+                        <div class="stat">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Use Cases Documented</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">40%</div>
+                            <div class="stat-label">Reduction in Duplicate Work</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">User Adoption Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>Process</h2>
+                    <p>Led a cross-functional team through the entire product development lifecycle, from user research and requirements gathering to design, development, and launch. Conducted extensive user interviews with teams across different business units to understand their needs and pain points.</p>
+                </div>
+            </div>
+
+            <nav class="project-next" aria-label="Other projects">
+                <p class="project-next-heading">Other projects</p>
+                <ul class="project-next-list">
+                    <li class="project-next-item">
+                        <a href="dag.html" class="project-next-link">
+                            <span class="project-next-inner">
+                                <span class="project-next-arrow" aria-hidden="true">→</span>
+                                <span class="project-next-title">Visual DAG editor | Intuit</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="project-next-item">
+                        <a href="rai-checker.html" class="project-next-link">
+                            <span class="project-next-inner">
+                                <span class="project-next-arrow" aria-hidden="true">→</span>
+                                <span class="project-next-title">Responsible AI checker for vibe coders</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="project-next-item">
+                        <a href="deep-learning-research.html" class="project-next-link">
+                            <span class="project-next-inner">
+                                <span class="project-next-arrow" aria-hidden="true">→</span>
+                                <span class="project-next-title">Research on Building Deep Learning Models for Non-Experts</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-left header-text">
+            &copy; 2026
+        </div>
+        <div class="footer-center">
+            <a href="mailto:yeonjikim.design@gmail.com" class="header-link">
+                yeonjikim.design@gmail.com
+            </a>
+        </div>
+        <div class="footer-right">
+            <a href="https://www.linkedin.com/in/yeonji-kim/" target="_blank" class="header-link">
+                LinkedIn <span class="external-icon">↗</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
