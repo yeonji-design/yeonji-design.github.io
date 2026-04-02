@@ -4,16 +4,26 @@
  * Let html/body grow with content on case studies. Otherwise height: 100% + body 100vh
  * can trap overflow in a way where window/document scroll APIs do nothing in some browsers.
  */
-html:has(.project-main) {
-    height: auto;
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+/* 
+ * Override styles.css settings that break position:sticky:
+ * - height: 100% / 100vh constrains scroll container
+ * - overflow-x: hidden creates a new scroll container
+ * Using !important because styles.css loads first and sets these on html,body together
+ */
+html:has(.project-main),
+html:has(.project-main) body {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    overflow-x: clip !important;
 }
 
-body:has(.project-main) {
-    height: auto;
-    min-height: 100vh;
+/* Ensure no ancestor creates a containing block that breaks sticky */
+body:has(.project-main) .project-main,
+body:has(.project-main) .project-container,
+body:has(.project-main) .project-content {
+    overflow: visible !important;
+    transform: none !important;
 }
 
 body:has(.project-main) .footer {
@@ -112,11 +122,12 @@ body:has(.project-main) .footer {
 @keyframes project-expand {
     from {
         opacity: 0;
-        transform: scale(0.4);
+        transform: scale(0.92) translateY(12px);
     }
     to {
         opacity: 1;
-        transform: scale(1);
+        /* none = no transform on container after load, so position:sticky works on h2 */
+        transform: none;
     }
 }
 
@@ -150,8 +161,7 @@ body:has(.project-main) .footer {
 .project-container {
     width: 100%;
     max-width: 1200px;
-    transform-origin: center center;
-    animation: project-expand 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Animation removed - transform (even animated) breaks position:sticky on descendants */
 }
 
 .project-header {
@@ -214,11 +224,16 @@ body:has(.project-main) .footer {
     gap: 4.5rem;
 }
 
+/*
+ * Two-column layout with sticky sidebar heading.
+ * Grid with subgrid would be ideal but browser support is limited.
+ * Using CSS Grid with explicit row placement.
+ */
 .project-section {
     display: grid;
     grid-template-columns: 200px 1fr;
+    grid-auto-rows: min-content;
     gap: 0 4.5rem;
-    align-items: start;
     text-align: left;
     padding-top: 4rem;
     border-top: 1px solid #333333;
@@ -232,13 +247,20 @@ body:has(.project-main) .footer {
 
 .project-section h2 {
     grid-column: 1;
+    /* Span many rows so sticky has room to travel while content scrolls */
+    grid-row: 1 / span 50;
     position: sticky;
-    top: 2rem;
+    top: 1rem;
     align-self: start;
+    height: fit-content;
+    z-index: 2;
+    background-color: #1a1a1a;
+    padding-top: 0.25rem;
+    padding-bottom: 0.5rem;
     font-size: 1.5rem;
     font-weight: 500;
     color: #ffffff;
-    margin: 0 0 1rem 0;
+    margin: 0;
 }
 
 .project-section > p,
@@ -703,14 +725,19 @@ body:has(.project-main) .footer {
     transform: translateY(0);
 }
 
-/* Sections: transform only so nested .stat / .feature-card / .pain-column can fade independently */
-.scroll-reveal.scroll-reveal--section {
-    opacity: 1;
-    transition: transform 0.26s ease-out;
+/*
+ * Section headings (h2): NO transform because they use position:sticky.
+ * Any transform on a sticky element or its ancestors breaks sticky behavior.
+ */
+.project-section h2.scroll-reveal {
+    transform: none !important;
+    opacity: 0;
+    transition: opacity 0.28s ease-out;
 }
 
-.scroll-reveal.scroll-reveal--section.is-visible {
-    transform: translateY(0);
+.project-section h2.scroll-reveal.is-visible {
+    transform: none !important;
+    opacity: 1;
 }
 
 .feature-grid > .scroll-reveal:nth-child(2),
@@ -745,6 +772,7 @@ body:has(.project-main) .footer {
 
 @media (prefers-reduced-motion: reduce) {
     .scroll-reveal.scroll-reveal--section {
+        opacity: 1;
         transform: none;
         transition: none;
     }
@@ -770,8 +798,13 @@ body:has(.project-main) .footer {
 @media (max-width: 768px) {
     .project-section {
         grid-template-columns: 1fr;
+        align-items: start;
     }
-    .project-section h2,
+    .project-section h2 {
+        grid-row: auto;
+        position: relative;
+        top: auto;
+    }
     .project-section > p,
     .project-section > ul,
     .project-section > ol,
@@ -832,5 +865,569 @@ body:has(.project-main) .footer {
     .project-header .tag {
         font-size: 0.75rem;
         padding: 0.25rem 0.75rem;
+    }
+}
+
+/* -------------------------------------------------------------------------
+   DAG case study (dag.html) — scoped under .project-dag
+   ------------------------------------------------------------------------- */
+
+.project-dag .project-header .dag-kicker {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #D0FE05;
+    margin: 0 0 0.5rem 0;
+}
+
+.project-dag .project-subtitle .dag-title-em {
+    font-style: italic;
+    font-weight: 500;
+    color: #9ed85c;
+}
+
+.dag-section-stack > p:last-child {
+    margin-bottom: 0;
+}
+
+.dag-stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.dag-stat-card {
+    background-color: #222222;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+}
+
+.dag-stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #D0FE05;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.dag-stat-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #aaaaaa;
+    line-height: 1.35;
+}
+
+.dag-quote-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.dag-quote {
+    margin: 0;
+    padding: 0 0 0 1rem;
+    border-left: 3px solid #444444;
+}
+
+.dag-quote p {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #cccccc;
+    line-height: 1.55;
+    margin: 0 0 0.75rem 0;
+}
+
+.dag-quote footer {
+    font-size: 0.8rem;
+    font-style: normal;
+    color: #888888;
+}
+
+.dag-process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.dag-phase-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 1.25rem 1.35rem 1.35rem;
+    border-top: 3px solid #D0FE05;
+}
+
+.dag-phase-card--discover {
+    border-top-color: #5cb85c;
+}
+
+.dag-phase-card--define {
+    border-top-color: #e8a04f;
+}
+
+.dag-phase-card--design {
+    border-top-color: #5b9bd5;
+}
+
+.dag-phase-card--deliver {
+    border-top-color: #9b7ed9;
+}
+
+.dag-phase-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 100%;
+}
+
+.project-section .dag-phase-card .dag-phase-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666666;
+    margin: 0 0 0.75rem 0;
+}
+
+.dag-phase-title {
+    font-family: Aspekta Variable, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.65rem 0;
+}
+
+.dag-phase-card p:not(.dag-phase-label) {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #aaaaaa;
+    margin: 0;
+}
+
+.dag-flow-wrap {
+    margin: 1.5rem 0 0;
+}
+
+.dag-flow-diagram {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem 0.5rem;
+    padding: 1.75rem 1.25rem;
+    background-color: #222222;
+    border: 1px solid #333333;
+    border-radius: 12px;
+}
+
+.dag-flow-arrow {
+    color: #888888;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.dag-flow-node {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #444444;
+    background-color: #2a2a2a;
+    min-width: 8.5rem;
+}
+
+.dag-flow-node--processor {
+    border-color: #4d7c5f;
+    background-color: rgba(77, 124, 95, 0.18);
+}
+
+.dag-flow-node-type {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #9ed85c;
+}
+
+.dag-flow-node--asset .dag-flow-node-type {
+    color: #888888;
+}
+
+.dag-flow-node-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: ui-monospace, monospace;
+}
+
+.dag-flow-node-meta {
+    font-size: 0.7rem;
+    color: #888888;
+}
+
+.dag-flow-caption {
+    font-size: 0.85rem;
+    color: #888888;
+    margin: 0.85rem 0 0;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.dag-decision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.dag-decision-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.dag-decision-visual {
+    background-color: #262626;
+    border-bottom: 1px solid #333333;
+    padding: 1rem;
+    min-height: 7.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dag-decision-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    padding: 1rem 1.15rem 0.35rem;
+}
+
+.dag-decision-card p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #aaaaaa;
+    margin: 0;
+    padding: 0 1.15rem 1.15rem;
+}
+
+.dag-decision-visual--empty {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.dag-mock-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    align-items: stretch;
+}
+
+.dag-mock-sidebar-title {
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #888888;
+    margin-bottom: 0.15rem;
+}
+
+.dag-mock-pill {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.5rem;
+    background: #333333;
+    border-radius: 6px;
+    color: #cccccc;
+    text-align: center;
+}
+
+.dag-mock-canvas {
+    flex: 1;
+    min-width: 120px;
+    min-height: 88px;
+    border: 2px dashed #444444;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: #666666;
+}
+
+.dag-decision-visual--graph .dag-mini-graph {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.dag-mini-node {
+    font-size: 0.6rem;
+    padding: 0.35rem 0.45rem;
+    background: #2a2a2a;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    color: #cccccc;
+}
+
+.dag-mini-node--proc {
+    border-color: #4d7c5f;
+    background: rgba(77, 124, 95, 0.2);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.dag-mini-node--proc span {
+    font-size: 0.55rem;
+    color: #888888;
+    font-weight: 400;
+}
+
+.dag-decision-visual--panel {
+    padding: 1.25rem;
+}
+
+.dag-mock-config {
+    width: 100%;
+    max-width: 200px;
+    background: #2a2a2a;
+    border: 1px solid #444444;
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+.dag-mock-config-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.dag-mock-field {
+    height: 1.25rem;
+    background: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0;
+}
+
+.dag-mock-save {
+    display: inline-block;
+    margin-top: 0.35rem;
+    padding: 0.35rem 0.85rem;
+    background: #3d5c48;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.dag-mini-graph--row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dag-mock-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    justify-content: center;
+    margin-top: 0.65rem;
+}
+
+.dag-mock-toolbar span {
+    font-size: 0.55rem;
+    padding: 0.3rem 0.45rem;
+    background: #333333;
+    border-radius: 4px;
+    color: #aaaaaa;
+}
+
+.dag-mock-table {
+    width: 100%;
+    font-size: 0.6rem;
+}
+
+.dag-mock-row {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr 0.5fr;
+    gap: 0.35rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid #333333;
+    color: #aaaaaa;
+    align-items: center;
+}
+
+.dag-mock-row--head {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #888888;
+    border-bottom-color: #444444;
+}
+
+.dag-badge {
+    display: inline-block;
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    font-size: 0.55rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.dag-badge--ok {
+    background: rgba(80, 140, 90, 0.35);
+    color: #9ed85c;
+}
+
+.dag-badge--run {
+    background: rgba(100, 120, 80, 0.35);
+    color: #c8e6a0;
+}
+
+.dag-badge--fail {
+    background: rgba(120, 50, 50, 0.35);
+    color: #ff9999;
+}
+
+.dag-mock-link {
+    color: #7eb8ff;
+    font-size: 0.55rem;
+}
+
+.dag-tag-list {
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.dag-tag {
+    display: inline-block;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.dag-tag--green {
+    background: rgba(80, 120, 70, 0.35);
+    color: #b8e6a8;
+}
+
+.dag-tag--peach {
+    background: rgba(140, 90, 60, 0.3);
+    color: #e8b896;
+}
+
+.dag-tag--blue {
+    background: rgba(60, 90, 130, 0.35);
+    color: #a8c8f0;
+}
+
+.dag-outcome-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.dag-outcome-card {
+    background-color: #222222;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+}
+
+.dag-outcome-icon {
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 0.65rem;
+    line-height: 1;
+}
+
+.dag-outcome-icon--down {
+    color: #5cb85c;
+}
+
+.dag-outcome-icon--up {
+    color: #e07a5f;
+}
+
+.dag-outcome-icon--dot {
+    color: #5b9bd5;
+}
+
+.dag-outcome-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+}
+
+.dag-outcome-card p {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #888888;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .dag-stat-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dag-quote-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dag-process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dag-phase-card:last-child {
+        grid-column: 1;
+    }
+
+    .dag-outcome-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .dag-stat-row {
+        grid-template-columns: 1fr;
+    }
+
+    .dag-flow-diagram {
+        flex-direction: column;
+    }
+
+    .dag-flow-arrow {
+        transform: rotate(90deg);
     }
 }

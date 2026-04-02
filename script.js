@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectMain = document.querySelector('.project-main');
     if (projectMain) {
         const revealSelector =
-            '.project-section, .feature-card, .stat, .pain-column, .project-next';
+            '.project-section > *, .project-section .dag-section-stack > *, .feature-card, .stat, .pain-column, .project-next, .dag-stat-card, .dag-phase-card, .dag-decision-card, .dag-outcome-card, .dag-quote';
         const revealTargets = projectMain.querySelectorAll(revealSelector);
         const reduceMotion =
             window.matchMedia &&
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function openProject(projectId) {
     // Create project pages based on the project ID
     const projectPages = {
-        'genai-registry': 'genai-registry.html',
+        'dag': 'dag.html',
         'responsible-ai-checker': 'rai-checker.html',
         'deep-learning-research': 'deep-learning-research.html'
     };
