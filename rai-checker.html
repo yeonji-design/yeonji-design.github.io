@@ -40,7 +40,9 @@
 
             <div class="project-content">
                 <div class="project-section">
-                    <h2>Context</h2>
+                    <div class="project-section-heading">
+                        <h2>Context</h2>
+                    </div>
                     <p>This is a self-initiated project at the intersection of product design, AI policy, and developer tooling. It grew from a frustration I kept encountering in my work on enterprise AI platforms: the gap between how seriously large organisations treat AI safety and how little infrastructure exists for the solo founders and small teams shipping the majority of AI-powered products to end users.</p>
                     <div class="project-meta">
                         <div class="project-meta-item">
@@ -63,7 +65,10 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>The Problem</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Problem</p>
+                        <h2>The Problem</h2>
+                    </div>
                     <p>Every week, thousands of AI-powered apps launch built by solo founders and vibe coders, people who can ship a product in a weekend but have never heard of the NIST AI Risk Management Framework. They are not malicious. They are just moving fast.</p>
                     <p class="project-callout">Existing responsible AI frameworks are written for enterprise compliance teams. That gap is where harm happens.</p>
                     <p>The failures that result are not abstract: AI giving confident medical advice with no disclaimer. User data silently sent to third-party models for training. Chatbots with no safeguard for users expressing suicidal ideation. These are not hypothetical; they are patterns I could identify from public incident reports.</p>
@@ -71,13 +76,19 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>The Design Challenge</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Challenge</p>
+                        <h2>The Design Challenge</h2>
+                    </div>
                     <p class="project-callout">How do you make responsible AI feel achievable for someone who built their product in a weekend?</p>
                     <p>The core tension: responsible AI frameworks are comprehensive by necessity, but comprehensiveness is the enemy of adoption. A tool that covers everything but takes three hours to complete will be ignored. A tool that is too simple will not catch real harms. The design challenge was not just UX, it was <strong>translation</strong>: making regulatory and technical complexity legible and actionable without stripping out the substance that makes it meaningful.</p>
                 </div>
 
                 <div class="project-section">
-                    <h2>Choosing the Approach</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Process</p>
+                        <h2>Choosing the Approach</h2>
+                    </div>
                     <p>Before committing to a solution, I explored two questions separately: what form should the tool take, and how should it gather information from founders?</p>
                     <h3 class="project-subheading">Why a web-based tool</h3>
                     <p>The audience, vibe coders and solo founders, skews toward people working on laptops, not mobile. More importantly, they are non-technical by definition: they will not install a CLI tool, they will not embed a widget before they have shipped, and they are unlikely to add a browser extension just to run a pre-launch check. A web-based tool requires nothing except a link. It also means the assessment report can be shared via URL, to a co-founder, an early investor, or a user asking about safety practices. Shareability turns the output from a private checklist into a lightweight public trust signal.</p>
@@ -97,7 +108,10 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>What I Brought to This Problem</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Background</p>
+                        <h2>What I Brought to This Problem</h2>
+                    </div>
                     <p>This problem sits at the intersection of technical depth, product instinct, and design craft, and required all three simultaneously. I read the EU AI Act, the NIST AI RMF, and the OWASP LLM Top 10 in full rather than relying on summaries, which meant I could evaluate technical accuracy, understanding why prompt injection works, not just that it exists. Alongside that, I kept adoption as a real design constraint throughout: completion rate, friction at each step, and whether the output gives founders a clear path forward.</p>
                     <div class="project-table-wrap">
                         <p class="project-table-caption">How my background shaped the work</p>
@@ -136,7 +150,10 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>Designing the System</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">System</p>
+                        <h2>Designing the System</h2>
+                    </div>
                     <p>I designed the logic before I designed the interface. The tool is a decision engine first; the UI is a skin over a set of rules about risk, context, and prioritisation.</p>
                     <p><strong>How the system flows:</strong></p>
                     <ul class="design-decisions">
@@ -151,7 +168,10 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>Scoring Logic</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Logic</p>
+                        <h2>Scoring Logic</h2>
+                    </div>
                     <p>A flat pass-rate score is gameable. An app could answer 90% correctly but have one Critical failure that makes it dangerous to launch. I designed a weighted system where Critical questions carry far more weight than Low ones, with context multipliers applied based on the app profile.</p>
                     <div class="project-table-wrap">
                         <p class="project-table-caption">Base severity weights</p>
@@ -233,7 +253,10 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>Key Design Decisions</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Design</p>
+                        <h2>Key Design Decisions</h2>
+                    </div>
                     <p>Six decisions shaped the tool's character. Each reflects a specific tension and a deliberate position on how to resolve it.</p>
                     <div class="feature-grid">
                         <div class="feature-card">
@@ -294,14 +317,20 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>The Assessment Experience</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Experience</p>
+                        <h2>The Assessment Experience</h2>
+                    </div>
                     <p><strong>Profile flow (5 steps):</strong> Captures app type, audience, agency, data sensitivity, and jurisdiction. Steps that most change what follows (agency, data sensitivity) are designed to feel consequential so founders understand why later questions appear or disappear.</p>
                     <p><strong>Question cards:</strong> Each item supports unanswered, Yes, No, and Unsure, plus an Is this me? pattern to split applicable vs not-applicable guidance without breaking the score model.</p>
                     <p><strong>Report:</strong> Readiness badge, radar by category, and a prioritised fix list. Critical items show fix copy, effort tags, and framework links so the output is shareable and actionable, not just diagnostic.</p>
                 </div>
 
                 <div class="project-section">
-                    <h2>Cross-functional Considerations</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Stakeholders</p>
+                        <h2>Cross-functional Considerations</h2>
+                    </div>
                     <p>Building this for real would require more than design. Thinking through the stakeholder map was part of the design process, not an afterthought.</p>
                     <div class="feature-grid feature-grid--balanced">
                         <div class="feature-card">
@@ -324,7 +353,10 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>What I Would Do Next</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Next steps</p>
+                        <h2>What I Would Do Next</h2>
+                    </div>
                     <p>This prototype validates the core experience. The roadmap reflects both product thinking and where the regulatory and market landscape is heading.</p>
                     <div class="feature-grid feature-grid--balanced">
                         <div class="feature-card">
@@ -347,7 +379,10 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>Reflection</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Reflection</p>
+                        <h2>Reflection</h2>
+                    </div>
                     <p class="project-callout">The hardest design problem was not the UI. It was deciding how strict to be.</p>
                     <p>Every threshold in this tool is a judgment call with real implications. Why does Unsure score 40% and not 50%? Why do Critical questions carry so much more weight than Low? Why is the you may be fine if list intentionally shorter than the applies to you list? These decisions were not arbitrary; each reflects a considered position on user behaviour, risk tolerance, and the cost of getting it wrong in either direction.</p>
                     <p>The tension between accessibility and rigour is what makes responsible AI design genuinely difficult. A tool that is too lenient lets harmful apps pass. A tool that is too strict will be dismissed as impractical and ignored. That is not only a UX problem; it is a values problem that expresses itself through UX.</p>
@@ -355,7 +390,10 @@
                 </div>
 
                 <div class="project-section">
-                    <h2>At a Glance</h2>
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Summary</p>
+                        <h2>At a Glance</h2>
+                    </div>
                     <div class="impact-stats">
                         <div class="stat">
                             <div class="stat-number">22</div>

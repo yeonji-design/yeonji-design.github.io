@@ -169,7 +169,7 @@ body:has(.project-main) .footer {
     flex-direction: row;
     align-items: flex-end;
     gap: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
     text-align: left;
 }
 
@@ -179,8 +179,9 @@ body:has(.project-main) .footer {
 }
 
 .project-header-image {
-    width: 48%;
-    max-width: 560px;
+    width: 58%;
+    max-width: 720px;
+    min-width: 0;
     height: auto;
     border-radius: 12px;
     display: block;
@@ -245,9 +246,9 @@ body:has(.project-main) .footer {
     gap: 0 16rem;
 }
 
-.project-section h2 {
+/* Sticky column: caption + title move together */
+.project-section-heading {
     grid-column: 1;
-    /* Span many rows so sticky has room to travel while content scrolls */
     grid-row: 1 / span 50;
     position: sticky;
     top: 1rem;
@@ -257,20 +258,37 @@ body:has(.project-main) .footer {
     background-color: #1a1a1a;
     padding-top: 0.25rem;
     padding-bottom: 0.5rem;
+    margin: 0;
+}
+
+.project-section-caption {
+    display: block;
+    font-family: Aspekta Variable, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #666666;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.project-section-heading h2 {
+    margin: 0;
+    padding: 0;
     font-size: 1.5rem;
     font-weight: 500;
     color: #ffffff;
-    margin: 0;
 }
 
 .project-section > p,
 .project-section > ul,
 .project-section > ol,
-.project-section > div {
+.project-section > div:not(.project-section-heading) {
     grid-column: 2;
 }
 
-.project-section p {
+.project-section p:not(.project-section-caption) {
     font-size: 1rem;
     line-height: 1.6;
     color: #aaaaaa;
@@ -729,6 +747,18 @@ body:has(.project-main) .footer {
  * Section headings (h2): NO transform because they use position:sticky.
  * Any transform on a sticky element or its ancestors breaks sticky behavior.
  */
+.project-section-heading.scroll-reveal {
+    transform: none !important;
+    opacity: 0;
+    transition: opacity 0.28s ease-out;
+}
+
+.project-section-heading.scroll-reveal.is-visible {
+    transform: none !important;
+    opacity: 1;
+}
+
+/* Legacy: direct h2 without heading wrapper */
 .project-section h2.scroll-reveal {
     transform: none !important;
     opacity: 0;
@@ -800,15 +830,16 @@ body:has(.project-main) .footer {
         grid-template-columns: 1fr;
         align-items: start;
     }
-    .project-section h2 {
+    .project-section-heading {
         grid-row: auto;
         position: relative;
         top: auto;
+        grid-column: 1;
     }
     .project-section > p,
     .project-section > ul,
     .project-section > ol,
-    .project-section > div {
+    .project-section > div:not(.project-section-heading) {
         grid-column: 1;
     }
     .project-main {
@@ -1081,6 +1112,51 @@ body:has(.project-main) .footer {
     margin: 0.85rem 0 0;
     line-height: 1.45;
     text-align: center;
+}
+
+.dag-media-figure {
+    margin: 1.75rem 0 0;
+}
+
+.dag-media-figure--pair {
+    margin: 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid #333333;
+    background-color: #222222;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.dag-media-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid #333333;
+    background-color: #222222;
+}
+
+/* One row: component.png vs component1.png at 3:2 width; shared image height */
+.dag-media-figure--pair .dag-media-img {
+    --dag-pair-img-height: clamp(14rem, 40vh, 28rem);
+    width: 100%;
+    height: var(--dag-pair-img-height);
+    object-fit: contain;
+    display: block;
+    border: none;
+    border-radius: 0;
+}
+
+.dag-media-row {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+    align-items: stretch;
 }
 
 .dag-decision-grid {
@@ -1415,6 +1491,12 @@ body:has(.project-main) .footer {
 
     .dag-outcome-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .dag-media-figure--pair .dag-media-img {
+        --dag-pair-img-height: clamp(11rem, 36vh, 22rem);
     }
 }
 

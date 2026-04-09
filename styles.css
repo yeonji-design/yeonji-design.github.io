@@ -232,8 +232,11 @@ body {
 .project-preview-overlay {
     position: absolute;
     inset: 0;
-    background: url('image/test.png') center center / contain no-repeat;
     background-color: #252525;
+    background-image: url('image/test.png');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
     border-radius: 12px;
     opacity: 0;
     pointer-events: none;
@@ -243,6 +246,10 @@ body {
 
 .content-wrapper:has(.project-card:hover) .project-preview-overlay {
     opacity: 1;
+}
+
+.content-wrapper:has(.project-card--preview-dag:hover) .project-preview-overlay {
+    background-image: url('image/dag/main.png');
 }
 
 .about-content {
