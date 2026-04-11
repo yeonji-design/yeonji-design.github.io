@@ -602,7 +602,7 @@ body {
     pointer-events: none;
     position: fixed;
     inset: 0;
-    z-index: 10000;
+    z-index: 10001;
     overflow: visible;
     opacity: 0;
     transition: opacity 0.2s ease;
@@ -621,6 +621,7 @@ body {
 }
 
 .custom-cursor__ball--big .custom-cursor__ball-core {
+    position: relative;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -634,7 +635,68 @@ body {
 }
 
 .custom-cursor.is-hover .custom-cursor__ball--big .custom-cursor__ball-core {
-    transform: scale(4);
+    transform: scale(3);
+}
+
+.custom-cursor.is-hover .custom-cursor__ball--small {
+    opacity: 0;
+}
+
+.custom-cursor__hover-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    color: #1a1a1a;
+    opacity: 0;
+    transition: opacity 0.2s ease, font-size 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    line-height: 1;
+}
+
+.custom-cursor.is-hover .custom-cursor__hover-label {
+    opacity: 1;
+    font-size: 10px;
+}
+
+.custom-cursor__zoom-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    font-weight: 300;
+    color: #1a1a1a;
+    opacity: 0;
+    transition: opacity 0.2s ease, font-size 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    line-height: 1;
+}
+
+.custom-cursor.is-zoom .custom-cursor__ball--big .custom-cursor__ball-core {
+    transform: scale(3);
+}
+
+.custom-cursor.is-zoom .custom-cursor__zoom-label {
+    opacity: 1;
+    font-size: 10px;
+}
+
+.custom-cursor.is-zoom .custom-cursor__ball--small,
+.custom-cursor.is-zoom-out .custom-cursor__ball--small {
+    opacity: 0;
+}
+
+.custom-cursor.is-zoom-out .custom-cursor__ball--big .custom-cursor__ball-core {
+    transform: scale(3);
+}
+
+.custom-cursor.is-zoom-out .custom-cursor__zoom-label {
+    opacity: 1;
+    font-size: 10px;
 }
 
 .custom-cursor__ball--small svg {
@@ -645,9 +707,14 @@ body {
     fill: #ffffff;
 }
 
+img.dag-zoomable {
+    cursor: zoom-in;
+}
+
 @media (pointer: fine) {
-    body.custom-cursor--active {
-        cursor: none;
+    body.custom-cursor--active,
+    body.custom-cursor--active *:not(input):not(textarea):not(select) {
+        cursor: none !important;
     }
 
     body.custom-cursor--active input:not([type="checkbox"]):not([type="radio"]),

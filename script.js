@@ -78,12 +78,27 @@
             }
         });
 
+        var coreEl = root.querySelector('.custom-cursor__ball--big .custom-cursor__ball-core');
+
+        var zoomLabel = document.createElement('span');
+        zoomLabel.className = 'custom-cursor__zoom-label';
+        zoomLabel.textContent = '+';
+        coreEl.appendChild(zoomLabel);
+
+        var hoverLabel = document.createElement('span');
+        hoverLabel.className = 'custom-cursor__hover-label';
+        hoverLabel.textContent = '\u2197';
+        coreEl.appendChild(hoverLabel);
+
         var hoverSelector =
             'a, button, .project-card, input[type="submit"], input[type="button"], input[type="reset"], summary';
+        var zoomSelector = 'img.dag-media-img';
 
         document.addEventListener('mouseover', function (e) {
             var t = e.target;
-            if (t.closest && t.closest(hoverSelector)) {
+            if (t.closest && t.closest(zoomSelector)) {
+                root.classList.add('is-zoom');
+            } else if (t.closest && t.closest(hoverSelector)) {
                 root.classList.add('is-hover');
             }
         });
@@ -91,6 +106,14 @@
         document.addEventListener('mouseout', function (e) {
             var from = e.target;
             var to = e.relatedTarget;
+
+            var fromZoom = from.closest && from.closest(zoomSelector);
+            if (fromZoom) {
+                if (to && fromZoom.contains(to)) return;
+                root.classList.remove('is-zoom');
+                return;
+            }
+
             var fromMatch = from.closest && from.closest(hoverSelector);
             if (!fromMatch) {
                 return;
@@ -254,6 +277,64 @@ function openProject(projectId) {
         window.location.href = projectPage;
     }
 }
+
+// Lightbox: click any project image to view full size
+(function initLightbox() {
+    document.addEventListener('DOMContentLoaded', function () {
+        var projectMain = document.querySelector('.project-main');
+        if (!projectMain) return;
+
+        var overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        overlay.setAttribute('aria-hidden', 'true');
+        var img = document.createElement('img');
+        img.className = 'lightbox-img';
+        overlay.appendChild(img);
+        document.body.appendChild(overlay);
+
+        var cursorRoot = document.querySelector('.custom-cursor');
+        var zoomLabelEl = cursorRoot && cursorRoot.querySelector('.custom-cursor__zoom-label');
+
+        function close() {
+            overlay.classList.remove('is-active');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (cursorRoot) cursorRoot.classList.remove('is-zoom-out');
+            if (zoomLabelEl) zoomLabelEl.textContent = '+';
+        }
+
+        overlay.addEventListener('click', close);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') close();
+        });
+
+        overlay.addEventListener('mouseenter', function () {
+            if (overlay.classList.contains('is-active') && cursorRoot) {
+                cursorRoot.classList.add('is-zoom-out');
+            }
+        });
+
+        overlay.addEventListener('mouseleave', function () {
+            if (cursorRoot) cursorRoot.classList.remove('is-zoom-out');
+        });
+
+        projectMain.addEventListener('click', function (e) {
+            var target = e.target;
+            if (target.tagName !== 'IMG' || !target.classList.contains('dag-media-img')) return;
+            img.src = target.src;
+            img.alt = target.alt;
+            overlay.classList.add('is-active');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (cursorRoot) cursorRoot.classList.add('is-zoom-out');
+            if (zoomLabelEl) zoomLabelEl.textContent = '\u2212';
+        });
+
+        var imgs = projectMain.querySelectorAll('img.dag-media-img');
+        imgs.forEach(function (el) { el.classList.add('dag-zoomable'); });
+    });
+})();
 
 // Add smooth transitions to header links
 document.addEventListener('DOMContentLoaded', function() {

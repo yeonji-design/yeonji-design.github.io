@@ -922,6 +922,40 @@ body:has(.project-main) .footer {
     margin-bottom: 0;
 }
 
+.dag-problem-list {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.dag-problem-list li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #aaaaaa;
+    padding: 0.85rem 0 0.85rem 1.5rem;
+    border-bottom: 1px solid #2a2a2a;
+    position: relative;
+}
+
+.dag-problem-list li:last-child {
+    border-bottom: none;
+}
+
+.dag-problem-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #D0FE05;
+}
+
 .dag-stat-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1114,6 +1148,67 @@ body:has(.project-main) .footer {
     text-align: center;
 }
 
+.dag-journey-wrap {
+    margin: 1.5rem 0 0;
+}
+
+.dag-journey-diagram {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.65rem 0.4rem;
+    padding: 1.5rem 1rem;
+    background-color: #222222;
+    border: 1px solid #333333;
+    border-radius: 12px;
+}
+
+.dag-journey-step {
+    flex: 1 1 10.5rem;
+    min-width: 8.5rem;
+    max-width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.85rem 0.95rem;
+    border-radius: 8px;
+    border: 1px solid #444444;
+    background-color: #2a2a2a;
+}
+
+.dag-journey-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    background-color: rgba(77, 124, 95, 0.28);
+    color: #9ed85c;
+    border: 1px solid #4d7c5f;
+    flex-shrink: 0;
+}
+
+.dag-journey-label {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: #cccccc;
+    font-weight: 500;
+}
+
+.dag-journey-sep {
+    flex: 0 0 auto;
+    align-self: center;
+    color: #888888;
+    font-size: 1.1rem;
+    line-height: 1;
+    user-select: none;
+}
+
 .dag-media-figure {
     margin: 1.75rem 0 0;
 }
@@ -1153,15 +1248,23 @@ body:has(.project-main) .footer {
 
 .dag-media-row {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
     margin-top: 1.75rem;
     align-items: stretch;
 }
 
+.dag-media-row--6-4 {
+    grid-template-columns: 6fr 4fr;
+}
+
+.dag-media-row--6-4 .dag-media-figure--pair .dag-media-img {
+    --dag-pair-img-height: clamp(10rem, 28vh, 20rem);
+}
+
 .dag-decision-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1.25rem;
     margin-top: 0.5rem;
 }
@@ -1172,17 +1275,221 @@ body:has(.project-main) .footer {
     border-radius: 12px;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .dag-decision-visual {
     background-color: #262626;
-    border-bottom: 1px solid #333333;
-    padding: 1rem;
+    border-bottom: none;
+    border-right: 1px solid #333333;
+    padding: 0;
     min-height: 7.5rem;
+    flex: 6;
+    min-width: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.dag-decision-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Compare cards: left/right design decision layout */
+.dag-compare-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.dag-compare-title {
+    grid-column: 1 / -1;
+    font-family: Aspekta Variable, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    padding: 1.15rem 1.25rem;
+    border-bottom: 1px solid #333333;
+}
+
+.dag-compare-merge {
+    grid-column: 1 / -1;
+    padding: 1.25rem 1.25rem 1.15rem;
+    border-top: 1px solid #333333;
+    background-color: #1a1a1a;
+}
+
+.project-section p.dag-compare-merge-text {
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #aaaaaa;
+}
+
+.dag-compare-merge-text strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.dag-compare-merge-img-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dag-compare-merge-img-wrap:not(:has(img)) {
+    min-height: 11rem;
+    border: 1px dashed #444444;
+    background-color: #222222;
+}
+
+.dag-compare-merge-img-wrap:has(img) {
+    border: 1px solid #333333;
+    background-color: #222222;
+    line-height: 0;
+}
+
+.dag-compare-merge-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.dag-compare-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.dag-compare-side + .dag-compare-side {
+    border-left: 1px solid #333333;
+}
+
+.dag-compare-img-wrap {
+    background-color: #262626;
+    border-bottom: 1px solid #333333;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.dag-compare-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.dag-compare-content {
+    padding: 1.15rem 1.25rem;
+}
+
+.dag-compare-content h3 {
+    font-family: Aspekta Variable, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.35rem;
+}
+
+.project-section p.dag-compare-line {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #aaaaaa;
+    margin: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.dag-compare-pros-cons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-top: 0.35rem;
+}
+
+.dag-compare-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #aaaaaa;
+}
+
+.dag-compare-line-text {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.dag-compare-icon {
+    flex-shrink: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    /* Slight top offset so the glyph aligns optically with the first line of text */
+    margin-top: 0.28rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.dag-compare-icon--plus {
+    background-color: rgba(80, 120, 70, 0.45);
+    color: #b8e6a8;
+}
+
+.dag-compare-icon--plus::before {
+    content: "+";
+}
+
+.dag-compare-icon--minus {
+    background-color: rgba(120, 60, 50, 0.4);
+    color: #f0a090;
+}
+
+.dag-compare-icon--minus::before {
+    content: "\2212";
+}
+
+@media (max-width: 600px) {
+    .dag-compare-card {
+        grid-template-columns: 1fr;
+    }
+
+    .dag-compare-side + .dag-compare-side {
+        border-left: none;
+        border-top: 1px solid #333333;
+    }
+}
+
+.dag-decision-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 4;
+    min-width: 0;
 }
 
 .dag-decision-card h3 {
@@ -1190,7 +1497,7 @@ body:has(.project-main) .footer {
     font-weight: 600;
     color: #ffffff;
     margin: 0;
-    padding: 1rem 1.15rem 0.35rem;
+    padding: 1.15rem 1.25rem 0.35rem;
 }
 
 .dag-decision-card p {
@@ -1198,7 +1505,7 @@ body:has(.project-main) .footer {
     line-height: 1.55;
     color: #aaaaaa;
     margin: 0;
-    padding: 0 1.15rem 1.15rem;
+    padding: 0 1.25rem 1.15rem;
 }
 
 .dag-decision-visual--empty {
@@ -1501,6 +1808,16 @@ body:has(.project-main) .footer {
 }
 
 @media (max-width: 600px) {
+    .dag-decision-card {
+        flex-direction: column;
+    }
+
+    .dag-decision-visual {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #333333;
+    }
+
     .dag-stat-row {
         grid-template-columns: 1fr;
     }
@@ -1512,4 +1829,55 @@ body:has(.project-main) .footer {
     .dag-flow-arrow {
         transform: rotate(90deg);
     }
+
+    .dag-journey-diagram {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dag-journey-step {
+        max-width: none;
+        flex: 1 1 auto;
+    }
+
+    .dag-journey-sep {
+        align-self: center;
+        transform: rotate(90deg);
+        padding: 0.15rem 0;
+    }
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    transform: scale(0.95);
+    transition: transform 0.25s ease;
+}
+
+.lightbox-overlay.is-active .lightbox-img {
+    transform: scale(1);
 }
