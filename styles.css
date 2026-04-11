@@ -232,24 +232,34 @@ body {
 .project-preview-overlay {
     position: absolute;
     inset: 0;
-    background-color: #252525;
-    background-image: url('image/test.png');
-    background-position: center center;
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-color: #212121;
     border-radius: 12px;
+    overflow: hidden;
     opacity: 0;
     pointer-events: none;
     z-index: 1;
     transition: opacity 0.3s ease-in-out;
 }
 
+/* Preview image on its own layer so the overlay fill stays #212121 (letterbox + transparent GIF areas). */
+.project-preview-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+    background-image: url('image/test.png');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
 .content-wrapper:has(.project-card:hover) .project-preview-overlay {
     opacity: 1;
 }
 
-.content-wrapper:has(.project-card--preview-dag:hover) .project-preview-overlay {
-    background-image: url('image/dag/main.png');
+.content-wrapper:has(.project-card--preview-dag:hover) .project-preview-overlay::after {
+    background-image: url('image/dag/main.gif');
 }
 
 .about-content {
