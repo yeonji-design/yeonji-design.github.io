@@ -43,7 +43,7 @@
                     <div class="project-section-heading">
                         <h2>Overview</h2>
                     </div>
-                    <p>Replacing code-heavy pipeline configuration with a canvas-based DAG (Directed Acyclic Graph) editor so data engineers could see dependencies, debug faster, and onboard without a wall of config.</p>
+                    <p>Replacing code-heavy pipeline configuration with a canvas-based DAG (Directed Acyclic Graph) editor so data engineers could <span class="text-highlight">see dependencies, debug faster, and onboard without a config wall.</span></p>
                     <div class="project-meta">
                         <div class="project-meta-item">
                             <span class="project-meta-label">My role</span>
@@ -55,11 +55,11 @@
                         </div>
                         <div class="project-meta-item">
                             <span class="project-meta-label">Team</span>
-                            <span class="project-meta-value">1 Designer, 1 PM, 8 Engineers</span>
+                            <span class="project-meta-value">1 PM, 5 Engineers</span>
                         </div>
                         <div class="project-meta-item">
                             <span class="project-meta-label">Tools</span>
-                            <span class="project-meta-value">Figma, Figma Make</span>
+                            <span class="project-meta-value">Figma</span>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                         </ul>
                         <figure class="dag-media-figure">
                             <img src="image/dag/problem.png" alt="Pipeline configuration and dependencies buried in code and config, without a visual graph" class="dag-media-img" loading="lazy" decoding="async">
-                            <figcaption class="dag-flow-caption">Pipeline dependencies buried in code and config files — no visual overview of how processors are connected</figcaption>
+                            <figcaption class="dag-flow-caption">Pipeline dependencies buried in code and config files — no visual overview of how processors connect</figcaption>
                         </figure>
                         <!--<div class="dag-stat-row">
                             <div class="dag-stat-card">
@@ -107,7 +107,7 @@
                         <h2>A visual dependency graph for pipeline authoring and debugging</h2>
                     </div>
                     <div class="dag-section-stack">
-                        <p>The final design is a canvas-based DAG (Directed Acyclic Graph) editor embedded within the pipeline configuration experience. Engineers can visually author, connect, and configure their entire pipeline without writing dependency config manually.</p>
+                        <p>The final design is a canvas-based DAG (Directed Acyclic Graph) editor embedded within the pipeline configuration experience. Engineers <span class="text-highlight">author on the canvas—no hand-written dependency config.</span></p>
                         <figure class="dag-journey-wrap">
                             <div class="dag-journey-diagram">
                                 <div class="dag-journey-step">
@@ -214,7 +214,7 @@
                                 </div>
                                 <div class="dag-decision-text">
                                     <h3>Processor-first view with expand/collapse</h3>
-                                    <p>Pipelines can have dozens of processors, so the default view shows only processor nodes to keep dependencies clear at a glance. Users can expand any processor to reveal its input and output data assets, and collapse it back when they need the big picture.</p>
+                                    <p>Pipelines can have dozens of processors, so <span class="text-highlight">processors only at first—expand for assets.</span> Users can expand any processor to reveal its input and output data assets, and collapse it back when they need the big picture.</p>
                                 </div>
                             </article>
                             <article class="dag-decision-card">
@@ -223,7 +223,7 @@
                                 </div>
                                 <div class="dag-decision-text">
                                     <h3>Panel for configuring processors and data assets</h3>
-                                    <p>Selecting a node opens a configuration panel input fields. No modal interruption — the graph stays visible for spatial context.</p>
+                                    <p>Selecting a node opens a configuration panel with input fields. <span class="text-highlight">No modal—the graph stays in view.</span></p>
                                 </div>
                             </article>
                             <article class="dag-decision-card">
@@ -232,7 +232,7 @@
                                 </div>
                                 <div class="dag-decision-text">
                                     <h3>Empty state with guided entry</h3>
-                                    <p>A persistent left panel provides draggable node types. The empty canvas includes instructional hints, reducing the blank-canvas anxiety for first-time users.</p>
+                                    <p>A persistent left panel provides draggable node types. The empty canvas includes instructional hints, reducing blank-canvas anxiety for first-time users.</p>
                                 </div>
                             </article>
                             <div class="dag-compare-card">
@@ -274,7 +274,7 @@
                                     </div>
                                 </div>
                                 <div class="dag-compare-merge">
-                                    <p class="dag-compare-merge-text">I selected <strong>Option B</strong> — to give users more flexibility on designing the pipeline structure. To prevent empty nodes being saved, I added a validation step that would be triggered after clicking 'Run' or 'Save'.</p>
+                                    <p class="dag-compare-merge-text">I selected <strong>Option B</strong> — to give users more flexibility on designing the pipeline structure. <span class="text-highlight">Validation on Run or Save</span> prevents empty nodes from shipping.</p>
                                     <div class="dag-compare-merge-img-wrap">
                                         <img src="image/dag/solution-val.png" class="dag-compare-merge-img" loading="lazy" decoding="async">
                                     </div>
@@ -337,8 +337,8 @@
                         <h2>What I learned</h2>
                     </div>
                     <div class="dag-section-stack">
-                        <p>This project reinforced that the best developer tools don’t abstract away complexity — they make complexity legible. The DAG editor didn’t remove the underlying configuration; it gave engineers a spatial, visual representation that matched how they already thought about their work.</p>
-                        <p>Working on an internal platform also taught me the value of designing for trust. Data engineers needed to be confident that the visual tool was generating correct, production-ready configurations. I addressed this through the code view toggle, transparent error messaging, and by involving engineers deeply in the design review process.</p>
+                        <p>This project reinforced that the best developer tools don’t abstract away complexity — <span class="text-highlight">they make complexity legible.</span> The DAG editor didn’t remove the underlying configuration; it gave engineers a spatial, visual representation that matched how they already thought about their work.</p>
+                        <p>Working on an internal platform also taught me the value of <span class="text-highlight">designing for trust.</span> Data engineers needed to be confident that the visual tool was generating correct, production-ready configurations. I addressed this through the code view toggle, transparent error messaging, and by involving engineers deeply in the design review process.</p>
                     </div>
                 </div>
             </div>

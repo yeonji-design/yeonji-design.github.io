@@ -291,6 +291,19 @@ body {
     color: #ffffff;
 }
 
+/*
+ * Inline skim emphasis — lighter than headings: h3 uses #fff / 600+; this stays
+ * body-sized, weight 500, and a soft mid-gray so it lifts slightly off #aaa copy
+ * without reading like a title.
+ */
+.text-highlight {
+    font-size: inherit;
+    line-height: inherit;
+    font-style: normal;
+    font-weight: 500;
+    color: #d5d5d5;
+    letter-spacing: 0.02em;
+}
 
 .company-link {
     --company-link-muted: #aaaaaa;
