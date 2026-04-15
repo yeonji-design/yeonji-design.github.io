@@ -268,8 +268,8 @@ function openProject(projectId) {
     // Create project pages based on the project ID
     const projectPages = {
         'dag': 'dag.html',
-        'responsible-ai-checker': 'rai-checker.html',
-        'deep-learning-research': 'deep-learning-research.html'
+        'genai-registry': 'genai-registry.html',
+        'responsible-ai-checker': 'rai-checker.html'
     };
     
     const projectPage = projectPages[projectId];
