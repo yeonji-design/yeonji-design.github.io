@@ -29,12 +29,12 @@
         <div class="project-container">
             <div class="project-header">
                 <div class="project-header-text">
-                    <h1 class="project-title">GenOS Onboarding Experience</h1>
+                    <h1 class="project-title">GenAI Use Case Registry</h1>
                 <p class="project-subtitle">Streamlining Intuit’s internal GenAI development process</p>
                 <div class="project-tags">
-                    <span class="tag">platform</span>
+                    <span class="tag">GenAI</span>
                     <span class="tag">internal tool</span>
-                    <span class="tag">AI/ML</span>
+                    <span class="tag">governance</span>
                     <span class="tag">enterprise</span>
                 </div>
                 </div>
@@ -46,7 +46,7 @@
                     <div class="project-section-heading">
                         <h2>Overview</h2>
                     </div>
-                    <p>I designed the onboarding experience for Intuit’s GenOS — an internal GenAI system that powers products like QuickBooks, TurboTax, and Mailchimp. The goal was to help product teams easily onboard to the GenOS ecosystem and navigate reviews from legal, security, and AI experts without slowing down innovation.</p>
+                    <p>When generative AI emerged, Intuit needed to ship GenAI features fast to products like QuickBooks, TurboTax, and Mailchimp — but without a process to ensure legal, security, and AI reviews, the company could be exposed. I designed a centralized hub where product teams could register their GenAI use cases, connect to Intuit's GenAI capabilities,track review status, and get everything they needed to launch responsibly. More than 7.6k use cases have been registered through the platform.</p>
                     <div class="project-meta">
                         <div class="project-meta-item">
                             <span class="project-meta-label">My Role</span>
@@ -54,11 +54,11 @@
                         </div>
                         <div class="project-meta-item">
                             <span class="project-meta-label">Timeline</span>
-                            <span class="project-meta-value">4 months</span>
+                            <span class="project-meta-value">Oct 2023 - Jan 2024</span>
                         </div>
                         <div class="project-meta-item">
                             <span class="project-meta-label">Team</span>
-                            <span class="project-meta-value">1 PM, 5 Engineers</span>
+                            <span class="project-meta-value">1 PM, 6 Engineers</span>
                         </div>
                         <div class="project-meta-item">
                             <span class="project-meta-label">Tools</span>
@@ -70,66 +70,179 @@
                 <div class="project-section">
                     <div class="project-section-heading">
                         <p class="project-section-caption">Problem</p>
-                        <h2>Context & Problem</h2>
+                        <h2>GenAI was moving faster than the company's guardrails</h2>
                     </div>
-                    <p>Product teams across Intuit were beginning to build GenAI features, but onboarding to GenOS required navigating scattered resources, unclear processes, and multiple review steps. This complexity created confusion and delays for product teams and reviewers alike.</p>
-                    <div class="pain-columns">
-                        <div class="pain-column">
-                            <span class="pain-column-icon" aria-hidden="true">🛠️</span>
-                            <h3 class="pain-column-title">Product Teams</h3>
-                            <p>Builders of GenAI features</p>
+                    <div class="dag-section-stack">
+                    <p>In 2023, product teams across Intuit were racing to build GenAI features into TurboTax, QuickBooks, and other products. But there was no process for ensuring those features passed legal, security, and AI reviews before shipping. The consequences were real:</p>
+                    <ul class="dag-problem-list">
+                        <li>Product teams didn’t know who to contact for legal, security or AI sign-off, or even that they needed to.</li>
+                        <li>Product teams wanted to move fast, but the extensive review processes were blocking them from being the pioneers in this new era.</li>
+                        <li>Program managers responsible for tracking review status were doing it entirely in spreadsheets — manually chasing dozens of teams across Slack.</li>
+                        <li>There was no single source of truth on the resources, guiding teams on what to complete and when.</li>
+                    </ul>
+                    <figure class="genai-problem-flow-figure">
+                        <h3 class="genai-problem-flow-title">Previous process: Stakeholders were going through painful, manual processes.</h3>
+                        <!--<p>The existing process took up to three weeks, involving countless back-and-forth messages and manual tracking in spreadsheets. Product teams didn’t know what steps to complete or when. Reviewers from Legal, Security, and AI teams lacked visibility into pending tasks, and program managers struggled to track hundreds of use cases across the company.</p>-->
+                        <p>Everyone wanted to move faster, but the process wasn’t designed to scale.</p>
+                        <div class="genai-problem-flow" role="img" aria-label="Manual workflow in six steps: product teams build and request reviews; reviewers respond on forms; program managers track in spreadsheets; platform manually onboards teams; the process repeats when things change, such as switching AI models.">
+                            <div class="genai-flow-tr genai-flow-tr--head">
+                                <span class="genai-flow-head genai-flow-head--step">STEP</span>
+                                <span class="genai-flow-head">Product team</span>
+                                <span class="genai-flow-head">Reviewers</span>
+                                <span class="genai-flow-head">Program managers</span>
+                                <span class="genai-flow-head">Platform team</span>
+                            </div>
+                            <div class="genai-flow-tr">
+                                <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">1</span></div>
+                                <div class="genai-flow-cell"><div class="genai-flow-node">Request access to GenAI capabilities</div></div>
+                                <div class="genai-flow-cell"></div>
+                                <div class="genai-flow-cell"></div>
+                                <div class="genai-flow-cell"><div class="genai-flow-node genai-flow-node--stress">Manually onboard team to GenAI capabilities</div></div>
+                            </div>
+                            <div class="genai-flow-tr">
+                                <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">2</span></div>
+                                <div class="genai-flow-cell"><div class="genai-flow-node">Build a GenAI feature</div></div>
+                                <div class="genai-flow-cell"></div>
+                                <div class="genai-flow-cell"></div>
+                                <div class="genai-flow-cell"></div>
+                            </div>
+                            <div class="genai-flow-tr">
+                                <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">3</span></div>
+                                <div class="genai-flow-cell"><div class="genai-flow-node genai-flow-node--stress">Ready to launch, but blocked by a mandatory review</div></div>
+                                <div class="genai-flow-cell"></div>
+                                <div class="genai-flow-cell">
+                                    <div class="genai-flow-node genai-flow-node--stress">
+                                        Log use case in tracking sheet
+                                        <span class="genai-flow-node-note">
+                                            <span aria-hidden="true">🗂️</span>
+                                            <span class="genai-flow-node-note__text">Spreadsheet</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="genai-flow-cell"></div>
+                            </div>
+                            <div class="genai-flow-tr">
+                                <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">4</span></div>
+                                <div class="genai-flow-cell">
+                                    <div class="genai-flow-node genai-flow-node--stress">
+                                        Submit questionnaire for review
+                                        <span class="genai-flow-node-note">
+                                            <span aria-hidden="true">⚠️</span>
+                                            <span class="visually-hidden">Warning: </span>
+                                            <span class="genai-flow-node-note__text">2-3 weeks</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="genai-flow-cell">
+                                    <div class="genai-flow-node">
+                                        Review questionnaire and provide feedback
+                                        <span class="genai-flow-node-note">
+                                            <span aria-hidden="true">📄</span>
+                                            <span class="genai-flow-node-note__text">Google Docs, Slack</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="genai-flow-cell"><div class="genai-flow-node">Triage and assign reviewers</div></div>
+                                <div class="genai-flow-cell"></div>
+                            </div>
+                            <div class="genai-flow-tr">
+                                <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">5</span></div>
+                                <div class="genai-flow-cell"><div class="genai-flow-node">Launch feature once approved</div></div>
+                                <div class="genai-flow-cell"></div>
+                                <div class="genai-flow-cell"><div class="genai-flow-node">Track use case status</div></div>
+                                <div class="genai-flow-cell genai-flow-cell--legend">
+                                    <div class="genai-flow-legend" role="note">
+                                        <span class="genai-flow-legend-swatch" aria-hidden="true"></span>
+                                        <span class="genai-flow-legend-label">Pain points</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="genai-flow-tr">
+                                <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">6</span></div>
+                                <div class="genai-flow-cell genai-flow-cell--span-lanes">
+                                    <div class="genai-flow-node genai-flow-node--stress">Repeat the process if there are changes (e.g. changing AI model)</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pain-column">
-                            <span class="pain-column-icon" aria-hidden="true">📋</span>
-                            <h3 class="pain-column-title">Reviewers</h3>
-                            <p>Legal, Security, and AI experts</p>
-                        </div>
-                        <div class="pain-column">
-                            <span class="pain-column-icon" aria-hidden="true">📊</span>
-                            <h3 class="pain-column-title">Program Managers</h3>
-                            <p>Managers of GenAI use cases</p>
-                        </div>
+                        <!--<figcaption class="dag-flow-caption">Before the registry: a fragmented manual flow across product teams, reviewers, program managers, and platform — no single source of truth</figcaption>-->
+                    </figure>
                     </div>
-                    <p>The existing process took up to three weeks, involving countless back-and-forth messages and manual tracking in spreadsheets. Product teams didn’t know what steps to complete or when. Reviewers from Legal, Security, and AI teams lacked visibility into pending tasks, and program managers struggled to track hundreds of use cases across the company.</p>
-                        <p>In short — everyone wanted to move faster, but the process wasn’t designed to scale.</p>
-                        <div class="pain-columns">
-                            <div class="pain-column">
-                                <span class="pain-column-icon" aria-hidden="true">🛠️</span>
-                                <h3 class="pain-column-title">Product Teams</h3>
-                                <ul class="pain-list">
-                                    <li>Scattered resources, unclear process steps</li>
-                                    <li>Didn't know what to complete or when</li>
-                                    <li>Weeks of back-and-forth messages</li>
-                                </ul>
-                            </div>
-                            <div class="pain-column">
-                                <span class="pain-column-icon" aria-hidden="true">📋</span>
-                                <h3 class="pain-column-title">Reviewers</h3>
-                                <ul class="pain-list">
-                                    <li>Lacked visibility into pending tasks</li>
-                                    <li>Manual tracking across Legal, Security, AI</li>
-                                    <li>Bottlenecks from unclear request status</li>
-                                </ul>
-                            </div>
-                            <div class="pain-column">
-                                <span class="pain-column-icon" aria-hidden="true">📊</span>
-                                <h3 class="pain-column-title">Program Managers</h3>
-                                <ul class="pain-list">
-                                    <li>Hundreds of use cases in spreadsheets</li>
-                                    <li>No single source of truth</li>
-                                    <li>Difficulty scaling oversight</li>
-                                </ul>
-                            </div>
-                        </div>
+                </div>
+                <div class="project-section">
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">My Process</p>
+                        <h2>Moving fast in ambiguous territory</h2>
+                    </div>
+                    <p>This project had no clear precedent internally. GenAI governance frameworks were still being written industry-wide, and I was designing a system before the rules were fully defined. My first priority was understanding who was in pain and what the minimum viable process needed to look like.</p>
+                    <h3 class="project-subheading">Stakeholder mapping</h3>
+                    <p>I identified four distinct user groups with conflicting needs: product teams (wanted speed and clarity), program managers (needed visibility and control), legal reviewers (needed structured input, not ad-hoc requests), and security reviewers (needed consistent, complete submissions). Designing for all four without creating a bloated product was the central challenge.</p>
+                    
+                    <div class="genai-stakeholder-table-wrap">
+                        <table class="genai-stakeholder-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Team</th>
+                                    <th scope="col">Reviewers</th>
+                                    <th scope="col">Program Managers</th>
+                                    <th scope="col">Platform Team</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Speed and clarity — ship GenAI features without guessing who to contact or what to do next.</td>
+                                    <td>Structured, complete submissions from teams — not ad-hoc threads or half-filled requests.</td>
+                                    <td>Visibility and control when tracking dozens or hundreds of use cases across the company.</td>
+                                    <td>Self-serve onboarding to GenAI capabilities and guardrails teams can rely on at scale.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                                           
+                    <h3 class="project-subheading">Discovery with program managers</h3>
+                    <p>The program managers were the most acute pain point. I ran working sessions with them to map their current process step by step — what they tracked, where information lived, how they followed up. This gave me a clear picture of what the system needed to replace.</p>
+                    
+                    <h3 class="project-subheading">The build vs. buy decision</h3>
+                    <p>One of the most consequential design decisions wasn't visual — it was architectural. The review form required product teams to answer detailed legal, security, and AI questions, update documents, and communicate through the comments in Google Docs with reviewers over time. Building this natively would have consumed months of engineering time we didn't have.</p>
+                    <p>I evaluated third-party review tools and proposed integrating an existing platform via API rather than building the form experience from scratch. This let us ship the end-to-end experience in a fraction of the time, while the registry hub handled what only we could build: intake, resource access, status visibility, and configuration.</p>
+                    
                 </div>
 
                 <div class="project-section">
                     <div class="project-section-heading">
                         <p class="project-section-caption">Solution</p>
-                        <h2>Design Solution</h2>
+                        <h2>A central hub that connects the entire GenAI launch process</h2>
                     </div>
-                    <p>I designed a centralized platform where teams could discover resources, complete onboarding steps, and track review progress — all in one place.</p>
-                    <p>Key design decisions included:</p>
+                    <p>The registry wasn't a single screen — it was a system connecting four types of users through a shared workflow. Here's how it worked end to end.</p>
+                    <h3 class="project-subheading">The new flow</h3>
+                    <div class="genai-new-flow" role="img" aria-label="Product teams: register in Use Case Registry with automated access and dashboard; build with GenAI configurations; complete reviews in External Tool with reviewer notification; launch after confirmation.">
+                        <div class="genai-new-flow-header">Product teams</div>
+                        <div class="genai-new-flow-row">
+                            <div class="genai-new-flow-box genai-new-flow-box--detail">
+                                <span class="genai-new-flow-pill genai-new-flow-pill--registry">Use Case Registry</span>
+                                <span class="genai-new-flow-title">1. Register GenAI use case</span>
+                                <hr class="genai-new-flow-sep" aria-hidden="true" />
+                                <p class="genai-new-flow-desc">Automated access to GenAI capabilities, assigned reviewers, registered in dashboard</p>
+                            </div>
+                            <span class="genai-new-flow-arrow" aria-hidden="true">→</span>
+                            <div class="genai-new-flow-box genai-new-flow-box--detail">
+                                <span class="genai-new-flow-pill genai-new-flow-pill--registry">Use Case Registry</span>
+                                <span class="genai-new-flow-title">2. Build GenAI features</span>
+                                <hr class="genai-new-flow-sep" aria-hidden="true" />
+                                <p class="genai-new-flow-desc">GenAI specific configurations</p>
+                            </div>
+                            <span class="genai-new-flow-arrow" aria-hidden="true">→</span>
+                            <div class="genai-new-flow-box genai-new-flow-box--detail">
+                                <span class="genai-new-flow-pill genai-new-flow-pill--external">External Tool</span>
+                                <span class="genai-new-flow-title">3. Fill out a form for reviews</span>
+                                <hr class="genai-new-flow-sep" aria-hidden="true" />
+                                <p class="genai-new-flow-desc">Notification sent to reviewers once completed</p>
+                            </div>
+                            <span class="genai-new-flow-arrow" aria-hidden="true">→</span>
+                            <div class="genai-new-flow-box genai-new-flow-box--simple">
+                                <span class="genai-new-flow-title">4. Launch features after confirmed</span>
+                            </div>
+                        </div>
+                    </div>
                     <ul class="design-decisions">
                         <li><strong>Modular, non-linear onboarding:</strong> Allowed teams to complete steps in the order that matched their workflow while maintaining progress tracking.</li>
                         <li><strong>Integrated dashboards:</strong> Displayed priorities, owners, and due dates for each review type to reduce back-and-forth communication.</li>
@@ -182,14 +295,6 @@
                             <div class="stat-label">User Adoption Rate</div>
                         </div>
                     </div>
-                </div>
-
-                <div class="project-section">
-                    <div class="project-section-heading">
-                        <p class="project-section-caption">Process</p>
-                        <h2>Process</h2>
-                    </div>
-                    <p>Led a cross-functional team through the entire product development lifecycle, from user research and requirements gathering to design, development, and launch. Conducted extensive user interviews with teams across different business units to understand their needs and pain points.</p>
                 </div>
             </div>
 

@@ -1148,6 +1148,403 @@ body:has(.project-main) .footer {
     text-align: center;
 }
 
+/* GenAI registry — “before” workflow diagram (step column + four swimlanes) */
+.genai-problem-flow-figure {
+    margin: 1.75rem 0 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.genai-problem-flow-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #ffffff;
+    margin: 0 0 0.85rem;
+    max-width: 44rem;
+}
+
+.project-section p:has(+ .genai-stakeholder-table-wrap) {
+    margin-bottom: 0.35rem;
+}
+
+.genai-stakeholder-table-wrap {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.genai-stakeholder-table {
+    width: 100%;
+    max-width: none;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.88rem;
+}
+
+.genai-stakeholder-table thead th {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.7rem 0.65rem;
+    border-right: 1px solid #444444;
+    border-bottom: 1px solid #444444;
+    overflow-wrap: break-word;
+}
+
+.genai-stakeholder-table thead th:last-child {
+    border-right: none;
+}
+
+.genai-stakeholder-table tbody td {
+    background-color: #222222;
+    color: #cccccc;
+    padding: 0.65rem 0.65rem;
+    border-right: 1px solid #444444;
+    vertical-align: top;
+    line-height: 1.45;
+    font-weight: 500;
+    overflow-wrap: break-word;
+}
+
+.genai-stakeholder-table tbody td:last-child {
+    border-right: none;
+}
+
+/* GenAI registry — Solution: “new flow” horizontal diagram (Product teams) */
+.genai-new-flow {
+    margin: 0.65rem 0 1.25rem;
+    max-width: 100%;
+    padding: 1rem 0.85rem 1.1rem;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.genai-new-flow-header {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 0.65rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 8px;
+    border: 1px solid #404040;
+    background-color: #262626;
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.35;
+}
+
+.genai-new-flow-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.35rem 0.2rem;
+}
+
+.genai-new-flow-box {
+    flex: 1 1 11rem;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 0.7rem 0.65rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #404040;
+    background-color: #262626;
+    color: #ffffff;
+    text-align: center;
+}
+
+.genai-new-flow-box--detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.genai-new-flow-box--simple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.genai-new-flow-pill {
+    display: inline-block;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-transform: none;
+}
+
+.genai-new-flow-pill--registry {
+    background-color: rgba(77, 124, 95, 0.32);
+    border: 1px solid #4d7c5f;
+    color: #c8edb8;
+}
+
+.genai-new-flow-pill--external {
+    background-color: rgba(88, 118, 168, 0.3);
+    border: 1px solid #5a76a8;
+    color: #c9d8f4;
+}
+
+.genai-new-flow-title {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #ffffff;
+}
+
+/* Must beat .project-section p:not(.project-section-caption) { font-size: 1rem } */
+.project-section .genai-new-flow p.genai-new-flow-desc {
+    margin: 0;
+    margin-bottom: 0;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #a8a8a8;
+    max-width: 16rem;
+}
+
+.genai-new-flow-sep {
+    width: 100%;
+    margin: 0.1rem 0 0.05rem;
+    border: none;
+    border-top: 1px solid #404040;
+}
+
+.genai-new-flow-arrow {
+    flex: 0 0 auto;
+    align-self: center;
+    color: #9a9a9a;
+    font-size: 1rem;
+    line-height: 1;
+    user-select: none;
+    padding: 0 0.05rem;
+}
+
+@media (max-width: 36rem) {
+    .genai-new-flow-row {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .genai-new-flow-arrow {
+        transform: rotate(90deg);
+        padding: 0.15rem 0;
+    }
+
+    .genai-new-flow-box {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 22rem;
+    }
+}
+
+.genai-problem-flow {
+    /* Fixed step width so swimlane gradient matches grid column 1 */
+    --genai-step-track: 2.65rem;
+    --genai-lane-dark: #222222;
+    --genai-lane-light: #2c2c2c;
+    --genai-lane-step: #1c1c1c;
+    min-width: min(100%, 44rem);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 1rem;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: var(--genai-step-track) repeat(4, minmax(0, 1fr));
+    column-gap: 0;
+    row-gap: 0.5rem;
+    align-content: start;
+    background-color: var(--genai-lane-dark);
+    background-image: linear-gradient(
+        to right,
+        var(--genai-lane-step) 0,
+        var(--genai-lane-step) var(--genai-step-track),
+        var(--genai-lane-dark) var(--genai-step-track),
+        var(--genai-lane-dark) calc(var(--genai-step-track) + (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-light) calc(var(--genai-step-track) + (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-light) calc(var(--genai-step-track) + 2 * (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-dark) calc(var(--genai-step-track) + 2 * (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-dark) calc(var(--genai-step-track) + 3 * (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-light) calc(var(--genai-step-track) + 3 * (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-light) 100%
+    );
+}
+
+.genai-flow-tr {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: start;
+}
+
+.genai-flow-tr:not(.genai-flow-tr--head) {
+    align-items: stretch;
+}
+
+.genai-flow-tr--head {
+    padding: 0.35rem 0 0.65rem;
+    margin-bottom: 0.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 0;
+}
+
+.genai-flow-head {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #b8e870;
+    text-align: center;
+    line-height: 1.3;
+    padding: 0.45rem 0.95rem;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+    min-width: 0;
+    background-color: transparent;
+}
+
+.genai-flow-head--step {
+    text-transform: none;
+    padding: 0.45rem 0.2rem;
+}
+
+.genai-flow-tr:not(.genai-flow-tr--head) > .genai-flow-cell--step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 0.15rem;
+    padding-inline: 0.15rem;
+}
+
+.genai-flow-cell--span-lanes {
+    grid-column: 2 / -1;
+    min-width: 0;
+}
+
+.genai-flow-step-num {
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+    color: #9ed85c;
+}
+
+.genai-flow-tr:not(.genai-flow-tr--head) > .genai-flow-cell {
+    padding-block: 0.15rem 0.2rem;
+    padding-inline: 0.95rem;
+    min-width: 0;
+    background-color: transparent;
+}
+
+.genai-flow-node {
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #444444;
+    background-color: #2a2a2a;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #ffffff;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+.genai-flow-node--stress {
+    border-color: #8a6a3d;
+    background-color: rgba(138, 106, 61, 0.22);
+    color: #f0e6dc;
+}
+
+.genai-flow-node-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 0.45rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: rgba(240, 230, 220, 0.82);
+}
+
+.genai-flow-node:not(.genai-flow-node--stress) .genai-flow-node-note {
+    color: #aaaaaa;
+}
+
+.genai-flow-node-note__text {
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.genai-flow-cell--legend {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 100%;
+}
+
+.genai-flow-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    max-width: 100%;
+}
+
+.genai-flow-legend-swatch {
+    box-sizing: border-box;
+    width: 1.35rem;
+    height: 0.9rem;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #8a6a3d;
+    background-color: rgba(138, 106, 61, 0.22);
+}
+
+.genai-flow-legend-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #aaaaaa;
+    text-align: center;
+}
+
+@supports not (grid-template-columns: subgrid) {
+    .genai-problem-flow {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        grid-template-columns: unset;
+        column-gap: unset;
+        row-gap: unset;
+    }
+
+    .genai-flow-tr {
+        grid-column: unset;
+        grid-template-columns: var(--genai-step-track) repeat(4, minmax(0, 1fr));
+        gap: 0.5rem 0;
+    }
+}
+
 .dag-journey-wrap {
     margin: 1.5rem 0 0;
 }
