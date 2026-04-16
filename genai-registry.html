@@ -81,7 +81,7 @@
                         <li>There was no single source of truth on the resources, guiding teams on what to complete and when.</li>
                     </ul>
                     <figure class="genai-problem-flow-figure">
-                        <h3 class="genai-problem-flow-title">Previous process: Stakeholders were going through painful, manual processes.</h3>
+                        <h3 class="genai-problem-flow-title">Previous process: Stakeholders were going through painful, manual, and lengthy processes.</h3>
                         <!--<p>The existing process took up to three weeks, involving countless back-and-forth messages and manual tracking in spreadsheets. Product teams didn’t know what steps to complete or when. Reviewers from Legal, Security, and AI teams lacked visibility into pending tasks, and program managers struggled to track hundreds of use cases across the company.</p>-->
                         <p>Everyone wanted to move faster, but the process wasn’t designed to scale.</p>
                         <div class="genai-problem-flow" role="img" aria-label="Manual workflow in six steps: product teams build and request reviews; reviewers respond on forms; program managers track in spreadsheets; platform manually onboards teams; the process repeats when things change, such as switching AI models.">
@@ -94,7 +94,15 @@
                             </div>
                             <div class="genai-flow-tr">
                                 <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">1</span></div>
-                                <div class="genai-flow-cell"><div class="genai-flow-node">Request access to GenAI capabilities</div></div>
+                                <div class="genai-flow-cell">
+                                    <div class="genai-flow-node">
+                                        Request access to GenAI capabilities
+                                        <span class="genai-flow-node-note">
+                                            <span aria-hidden="true">💬</span>
+                                            <span class="genai-flow-node-note__text">Slack</span>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="genai-flow-cell"></div>
                                 <div class="genai-flow-cell"></div>
                                 <div class="genai-flow-cell"><div class="genai-flow-node genai-flow-node--stress">Manually onboard team to GenAI capabilities</div></div>
@@ -108,7 +116,7 @@
                             </div>
                             <div class="genai-flow-tr">
                                 <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">3</span></div>
-                                <div class="genai-flow-cell"><div class="genai-flow-node genai-flow-node--stress">Ready to launch, but blocked by a mandatory review</div></div>
+                                <div class="genai-flow-cell"><div class="genai-flow-node genai-flow-node--stress">Ready to launch, but blocked by a mandatory process</div></div>
                                 <div class="genai-flow-cell"></div>
                                 <div class="genai-flow-cell">
                                     <div class="genai-flow-node genai-flow-node--stress">
@@ -142,7 +150,15 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="genai-flow-cell"><div class="genai-flow-node">Triage and assign reviewers</div></div>
+                                <div class="genai-flow-cell">
+                                    <div class="genai-flow-node">
+                                        Triage and assign reviewers
+                                        <span class="genai-flow-node-note">
+                                            <span aria-hidden="true">🗂️</span>
+                                            <span class="genai-flow-node-note__text">Spreadsheet</span>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="genai-flow-cell"></div>
                             </div>
                             <div class="genai-flow-tr">
@@ -213,88 +229,152 @@
                         <h2>A central hub that connects the entire GenAI launch process</h2>
                     </div>
                     <p>The registry wasn't a single screen — it was a system connecting four types of users through a shared workflow. Here's how it worked end to end.</p>
-                    <h3 class="project-subheading">The new flow</h3>
-                    <div class="genai-new-flow" role="img" aria-label="Product teams: register in Use Case Registry with automated access and dashboard; build with GenAI configurations; complete reviews in External Tool with reviewer notification; launch after confirmation.">
-                        <div class="genai-new-flow-header">Product teams</div>
-                        <div class="genai-new-flow-row">
-                            <div class="genai-new-flow-box genai-new-flow-box--detail">
-                                <span class="genai-new-flow-pill genai-new-flow-pill--registry">Use Case Registry</span>
-                                <span class="genai-new-flow-title">1. Register GenAI use case</span>
-                                <hr class="genai-new-flow-sep" aria-hidden="true" />
-                                <p class="genai-new-flow-desc">Automated access to GenAI capabilities, assigned reviewers, registered in dashboard</p>
+                    <h3 class="project-subheading">The new process: A use case registry that streamlines the launch readiness process</h3>
+                    <div class="genai-new-flow-grid" role="img" aria-label="New flow across four stakeholders in five steps: step 1, product teams register use case and platform team grants automated access; step 2, product teams build features; step 3, product teams submit review form and reviewers receive notification; step 4, reviewers approve and program managers monitor dashboard; step 5, product teams launch.">
+                        <div class="genai-flow-tr genai-flow-tr--head">
+                            <span class="genai-flow-head genai-flow-head--step">STEP</span>
+                            <span class="genai-flow-head">Product team</span>
+                            <span class="genai-flow-head">Reviewers</span>
+                            <span class="genai-flow-head">Program managers</span>
+                            <span class="genai-flow-head">Platform team</span>
+                        </div>
+                        <div class="genai-flow-tr">
+                            <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">1</span></div>
+                            <div class="genai-flow-cell">
+                                <div class="genai-flow-node">
+                                    Register GenAI use case
+                                    <span class="genai-flow-node-note"><span class="genai-new-flow-pill genai-new-flow-pill--registry">Use Case Registry</span></span>
+                                </div>
                             </div>
-                            <span class="genai-new-flow-arrow" aria-hidden="true">→</span>
-                            <div class="genai-new-flow-box genai-new-flow-box--detail">
-                                <span class="genai-new-flow-pill genai-new-flow-pill--registry">Use Case Registry</span>
-                                <span class="genai-new-flow-title">2. Build GenAI features</span>
-                                <hr class="genai-new-flow-sep" aria-hidden="true" />
-                                <p class="genai-new-flow-desc">GenAI specific configurations</p>
-                            </div>
-                            <span class="genai-new-flow-arrow" aria-hidden="true">→</span>
-                            <div class="genai-new-flow-box genai-new-flow-box--detail">
-                                <span class="genai-new-flow-pill genai-new-flow-pill--external">External Tool</span>
-                                <span class="genai-new-flow-title">3. Fill out a form for reviews</span>
-                                <hr class="genai-new-flow-sep" aria-hidden="true" />
-                                <p class="genai-new-flow-desc">Notification sent to reviewers once completed</p>
-                            </div>
-                            <span class="genai-new-flow-arrow" aria-hidden="true">→</span>
-                            <div class="genai-new-flow-box genai-new-flow-box--simple">
-                                <span class="genai-new-flow-title">4. Launch features after confirmed</span>
+                            <div class="genai-flow-cell"></div>
+                            <div class="genai-flow-cell"></div>
+                            <div class="genai-flow-cell">
+                                <div class="genai-flow-node genai-flow-node--auto">Automated access to GenAI capabilities granted</div>
                             </div>
                         </div>
+                        <div class="genai-flow-tr">
+                            <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">2</span></div>
+                            <div class="genai-flow-cell">
+                                <div class="genai-flow-node">Build GenAI features</div>
+                            </div>
+                            <div class="genai-flow-cell"></div>
+                            <div class="genai-flow-cell"></div>
+                            <div class="genai-flow-cell"></div>
+                        </div>
+                        <div class="genai-flow-tr">
+                            <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">3</span></div>
+                            <div class="genai-flow-cell">
+                                <div class="genai-flow-node">
+                                    Submit review form
+                                    <span class="genai-flow-node-note"><span class="genai-new-flow-pill genai-new-flow-pill--external">External Tool</span></span>
+                                </div>
+                            </div>
+                            <div class="genai-flow-cell">
+                                <div class="genai-flow-node">Receive assignment notification
+                                    <span class="genai-flow-node-note">
+                                        <span aria-hidden="true">💬</span>
+                                        <span class="genai-flow-node-note__text">Email/Slack</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="genai-flow-cell"></div>
+                            <div class="genai-flow-cell"></div>
+                        </div>
+                        <div class="genai-flow-tr">
+                            <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">4</span></div>
+                            <div class="genai-flow-cell"></div>
+                            <div class="genai-flow-cell">
+                                <div class="genai-flow-node">
+                                    Review submission and approve
+                                    <span class="genai-flow-node-note"><span class="genai-new-flow-pill genai-new-flow-pill--external">External Tool</span></span>
+                                </div>
+                            </div>
+                            <div class="genai-flow-cell">
+                                <div class="genai-flow-node">
+                                    Monitor use case dashboard
+                                    <span class="genai-flow-node-note"><span class="genai-new-flow-pill genai-new-flow-pill--registry">Use Case Registry</span></span>
+                                </div>
+                            </div>
+                            <div class="genai-flow-cell"></div>
+                        </div>
+                        <div class="genai-flow-tr">
+                            <div class="genai-flow-cell genai-flow-cell--step"><span class="genai-flow-step-num">5</span></div>
+                            <div class="genai-flow-cell">
+                                <div class="genai-flow-node">Launch features</div>
+                            </div>
+                            <div class="genai-flow-cell"></div>
+                            <div class="genai-flow-cell"></div>
+                            <div class="genai-flow-cell"></div>
+                        </div>
                     </div>
+                    <div class="decision-grid">
+                        <article class="decision-card">
+                            <div class="decision-visual" role="img" aria-label="Use Case Registry homepage (screenshot to be added)"></div>
+                            <div class="decision-text">
+                                <h3>Homepage — resources and status at a glance</h3>
+                                <p>The homepage served two audiences simultaneously. For product teams new to the process, it surfaced key resources, documentation, and guidance on what a GenAI review requires. For program managers, it was a dashboard: every registered use case, its current review stage, and any blockers.</p>
+                            </div>
+                        </article>
+                        <article class="decision-card">
+                            <div class="decision-visual" role="img" aria-label="Use Case Registry homepage (screenshot to be added)"></div>
+                            <div class="decision-text">
+                                <h3>Register a use case — set expectations early</h3>
+                                <p>Teams registered before building — not after. Registration surfaced the full process upfront: what reviews were required, what resources were available, and what the path to launch looked like. It wasn't just intake; it was orientation.</p>
+                            </div>
+                        </article>
+                        <article class="decision-card">
+                            <div class="decision-visual" role="img" aria-label="Use Case Registry homepage (screenshot to be added)"></div>
+                            <div class="decision-text">
+                                <h3>Status tracking — one view for everyone</h3>
+                                <p>Once a use case was registered and the review form assigned, teams and program managers could track the review lifecycle from a single view. Status was pulled in automatically from the third-party tool via API — no manual updates required.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Key Design Decisions</p>
+                        <h2>Keeping complexity on the system's side, not the user's</h2>
+                    </div>
+                    <div class="genai-decisions">
+                        <div class="genai-decision">
+                            <h3 class="project-subheading">Decision 1: Don't build the review form natively</h3>
+                            <p>The temptation was to design a fully custom form experience inside the hub. I pushed back on this. The review form needed version history, comment threads, document attachments, and collaborative editing — features that would take months to build well. Using a third-party tool via API let us focus engineering resources on the parts only we could build: intake, routing, and status visibility. The tradeoff was some loss of visual consistency, but product teams already used the third-party tool in other contexts, which reduced friction.</p>
+                        </div>
+                        <div class="genai-decision">
+                            <h3 class="project-subheading">Decision 2: One hub, not separate tools per audience</h3>
+                            <p>Early conversations surfaced a suggestion to build separate interfaces for reviewers vs. product teams. I argued against this — a single hub with role-based views would reduce fragmentation and give program managers a unified view across all use cases. The shared surface also made it easier to add future use case types without rebuilding.</p>
+                        </div>
+                        <div class="genai-decision">
+                            <h3 class="project-subheading">Decision 3: Registration as orientation, not just intake</h3>
+                            <p>The old flow had a painful failure mode: teams would build a GenAI feature, then discover at launch that they needed legal and security sign-off — and get blocked. I designed registration to happen before building, so teams could see what reviews were required, what resources were available, and what the path to launch actually looked like. The form itself was kept short by design — just enough to route teams correctly and set expectations. The detailed review questions came later, via the third-party tool, when teams were ready for them.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="project-section-heading">
+                        <p class="project-section-caption">Outcome</p>
+                        <h2>7,600 use cases registered. Zero spreadsheets.</h2>
+                    </div>
+                    <p>The registry became the company-wide standard process for GenAI use case launches. Program managers went from manually tracking status across Slack and spreadsheets to monitoring a live dashboard. Product teams had a single place to start, regardless of which product or business unit they belonged to.</p>
                     <ul class="design-decisions">
-                        <li><strong>Modular, non-linear onboarding:</strong> Allowed teams to complete steps in the order that matched their workflow while maintaining progress tracking.</li>
-                        <li><strong>Integrated dashboards:</strong> Displayed priorities, owners, and due dates for each review type to reduce back-and-forth communication.</li>
-                        <li><strong>Central resource hub:</strong> Consolidated documentation and templates so teams no longer needed to search across multiple systems.</li>
-                        <li><strong>Visibility for reviewers and program managers:</strong> Provided real-time tracking of all GenAI use cases, replacing manual spreadsheet management.</li>
+                        <li>7,600 use cases registered through the platform</li>
+                        <li>Eliminated manual tracking for program managers across multiple business units</li>
+                        <li>Reduced launch risk by ensuring legal and security review was a required step, not an optional one</li>
+                        <li>Shipped and in production use within [X weeks/months] of project kickoff</li>
                     </ul>
                 </div>
 
                 <div class="project-section">
                     <div class="project-section-heading">
-                        <p class="project-section-caption">Features</p>
-                        <h2>Key Features</h2>
+                        <p class="project-section-caption">Reflection</p>
+                        <h2>What this project taught me about designing in ambiguity</h2>
                     </div>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h3>Smart Search & Discovery</h3>
-                            <p>Advanced filtering and search capabilities to help teams find relevant use cases quickly.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>Collaboration Tools</h3>
-                            <p>Built-in communication features to connect teams and share knowledge.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>Impact Tracking</h3>
-                            <p>Metrics and analytics to measure the success and adoption of AI initiatives.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>Template Library</h3>
-                            <p>Reusable templates and components to accelerate development.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-section">
-                    <div class="project-section-heading">
-                        <p class="project-section-caption">Impact</p>
-                        <h2>Impact</h2>
-                    </div>
-                    <div class="impact-stats">
-                        <div class="stat">
-                            <div class="stat-number">150+</div>
-                            <div class="stat-label">Use Cases Documented</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">40%</div>
-                            <div class="stat-label">Reduction in Duplicate Work</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">85%</div>
-                            <div class="stat-label">User Adoption Rate</div>
-                        </div>
-                    </div>
+                    <p>This was one of the most ambiguous projects I've worked on — not because the UX was complex, but because the problem itself was still being defined. Governance frameworks for GenAI didn't exist yet. I was designing a process for a thing the company was still figuring out how to govern.</p>
+                    <p>What I learned is that in fast-moving, high-stakes situations, the designer's job is often to create the container — a structure that gives people clarity even when the rules inside it are still evolving. The hub wasn't sophisticated, but it replaced chaos with legibility. Sometimes that's the most valuable thing you can ship.</p>
+                    <p>I also learned that the hardest design decisions on this project weren't about screens — they were about scope. Deciding what not to build (a native review form, separate tools per audience, a complex notification system) was as important as anything I designed.</p>
                 </div>
             </div>
 

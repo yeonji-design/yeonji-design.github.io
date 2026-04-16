@@ -1219,10 +1219,11 @@ body:has(.project-main) .footer {
 
 /* GenAI registry — Solution: “new flow” horizontal diagram (Product teams) */
 .genai-new-flow {
-    margin: 0.65rem 0 1.25rem;
+    margin: 0.5rem 0 0.85rem;
     max-width: 100%;
     padding: 1rem 0.85rem 1.1rem;
     background-color: #1a1a1a;
+    border: 1px solid #383838;
     border-radius: 10px;
     box-sizing: border-box;
 }
@@ -1231,14 +1232,12 @@ body:has(.project-main) .footer {
     width: 100%;
     box-sizing: border-box;
     margin: 0 0 0.65rem;
-    padding: 0.65rem 0.85rem;
-    border-radius: 8px;
-    border: 1px solid #404040;
-    background-color: #262626;
+    padding: 0.15rem 0.25rem;
     color: #ffffff;
-    font-size: 0.88rem;
-    font-weight: 600;
-    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     line-height: 1.35;
 }
 
@@ -1247,7 +1246,7 @@ body:has(.project-main) .footer {
     flex-wrap: wrap;
     align-items: stretch;
     justify-content: center;
-    gap: 0.35rem 0.2rem;
+    gap: 0.25rem 0.08rem;
 }
 
 .genai-new-flow-box {
@@ -1273,8 +1272,7 @@ body:has(.project-main) .footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 0;
+    gap: 0.45rem;
 }
 
 .genai-new-flow-pill {
@@ -1308,6 +1306,10 @@ body:has(.project-main) .footer {
     color: #ffffff;
 }
 
+.genai-new-flow--product .genai-new-flow-title {
+    min-height: calc(0.86rem * 1.3 * 2);
+}
+
 /* Must beat .project-section p:not(.project-section-caption) { font-size: 1rem } */
 .project-section .genai-new-flow p.genai-new-flow-desc {
     margin: 0;
@@ -1326,6 +1328,11 @@ body:has(.project-main) .footer {
     border-top: 1px solid #404040;
 }
 
+.project-section .genai-new-flow p.genai-new-flow-platform-note {
+    max-width: none;
+    padding: 0.15rem 0.25rem;
+}
+
 .genai-new-flow-arrow {
     flex: 0 0 auto;
     align-self: center;
@@ -1333,13 +1340,13 @@ body:has(.project-main) .footer {
     font-size: 1rem;
     line-height: 1;
     user-select: none;
-    padding: 0 0.05rem;
+    padding: 0;
 }
 
 @media (max-width: 36rem) {
     .genai-new-flow-row {
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.18rem;
     }
 
     .genai-new-flow-arrow {
@@ -1352,6 +1359,43 @@ body:has(.project-main) .footer {
         width: 100%;
         max-width: 22rem;
     }
+}
+
+.genai-new-flow-grid {
+    --genai-step-track: 2.65rem;
+    --genai-lane-dark: #1e1e1e;
+    --genai-lane-light: #252525;
+    --genai-lane-step: #181818;
+    min-width: min(100%, 44rem);
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0.5rem 0 1.25rem;
+    padding: 0 0 1rem;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: var(--genai-step-track) repeat(4, minmax(0, 1fr));
+    column-gap: 0;
+    row-gap: 0.5rem;
+    align-content: start;
+    background-color: var(--genai-lane-dark);
+    background-image: linear-gradient(
+        to right,
+        var(--genai-lane-step) 0,
+        var(--genai-lane-step) var(--genai-step-track),
+        var(--genai-lane-dark) var(--genai-step-track),
+        var(--genai-lane-dark) calc(var(--genai-step-track) + (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-light) calc(var(--genai-step-track) + (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-light) calc(var(--genai-step-track) + 2 * (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-dark) calc(var(--genai-step-track) + 2 * (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-dark) calc(var(--genai-step-track) + 3 * (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-light) calc(var(--genai-step-track) + 3 * (100% - var(--genai-step-track)) / 4),
+        var(--genai-lane-light) 100%
+    );
+}
+
+.genai-new-flow-grid .genai-flow-node-note {
+    margin-top: 0.5rem;
 }
 
 .genai-problem-flow {
@@ -1450,11 +1494,13 @@ body:has(.project-main) .footer {
     padding-inline: 0.95rem;
     min-width: 0;
     background-color: transparent;
+    display: flex;
+    flex-direction: column;
 }
 
 .genai-flow-node {
     box-sizing: border-box;
-    max-width: 100%;
+    width: 100%;
     margin-inline: auto;
     padding: 0.65rem 0.75rem;
     border-radius: 8px;
@@ -1466,12 +1512,24 @@ body:has(.project-main) .footer {
     color: #ffffff;
     text-align: center;
     overflow-wrap: break-word;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .genai-flow-node--stress {
     border-color: #8a6a3d;
     background-color: rgba(138, 106, 61, 0.22);
     color: #f0e6dc;
+}
+
+.genai-flow-node--auto {
+    border-color: #333333;
+    border-style: dashed;
+    background-color: transparent;
+    color: #666666;
 }
 
 .genai-flow-node-note {
@@ -1659,14 +1717,14 @@ body:has(.project-main) .footer {
     --dag-pair-img-height: clamp(10rem, 28vh, 20rem);
 }
 
-.dag-decision-grid {
+.decision-grid {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     margin-top: 0.5rem;
 }
 
-.dag-decision-card {
+.decision-card {
     background-color: #1e1e1e;
     border: 1px solid #333333;
     border-radius: 12px;
@@ -1675,7 +1733,7 @@ body:has(.project-main) .footer {
     flex-direction: row;
 }
 
-.dag-decision-visual {
+.decision-visual {
     background-color: #262626;
     border-bottom: none;
     border-right: 1px solid #333333;
@@ -1689,7 +1747,7 @@ body:has(.project-main) .footer {
     overflow: hidden;
 }
 
-.dag-decision-img {
+.decision-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1881,7 +1939,7 @@ body:has(.project-main) .footer {
     }
 }
 
-.dag-decision-text {
+.decision-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1889,7 +1947,7 @@ body:has(.project-main) .footer {
     min-width: 0;
 }
 
-.dag-decision-card h3 {
+.decision-card h3 {
     font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
@@ -1897,7 +1955,7 @@ body:has(.project-main) .footer {
     padding: 1.15rem 1.25rem 0.35rem;
 }
 
-.dag-decision-card p {
+.decision-card p {
     font-size: 0.9rem;
     line-height: 1.55;
     color: #aaaaaa;
@@ -1905,7 +1963,7 @@ body:has(.project-main) .footer {
     padding: 0 1.25rem 1.15rem;
 }
 
-.dag-decision-visual--empty {
+.decision-visual--empty {
     gap: 0.75rem;
     flex-wrap: wrap;
 }
@@ -1948,7 +2006,7 @@ body:has(.project-main) .footer {
     color: #666666;
 }
 
-.dag-decision-visual--graph .dag-mini-graph {
+.decision-visual--graph .dag-mini-graph {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
@@ -1981,7 +2039,7 @@ body:has(.project-main) .footer {
     font-weight: 400;
 }
 
-.dag-decision-visual--panel {
+.decision-visual--panel {
     padding: 1.25rem;
 }
 
@@ -2205,11 +2263,11 @@ body:has(.project-main) .footer {
 }
 
 @media (max-width: 600px) {
-    .dag-decision-card {
+    .decision-card {
         flex-direction: column;
     }
 
-    .dag-decision-visual {
+    .decision-visual {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid #333333;

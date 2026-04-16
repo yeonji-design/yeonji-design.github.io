@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectMain = document.querySelector('.project-main');
     if (projectMain) {
         const revealSelector =
-            '.project-section > *, .project-section .dag-section-stack > *, .feature-card, .stat, .pain-column, .project-next, .dag-stat-card, .dag-phase-card, .dag-decision-card, .dag-outcome-card, .dag-quote';
+            '.project-section > *, .project-section .dag-section-stack > *, .feature-card, .stat, .pain-column, .project-next, .dag-stat-card, .dag-phase-card, .decision-card, .dag-outcome-card, .dag-quote';
         const revealTargets = projectMain.querySelectorAll(revealSelector);
         const reduceMotion =
             window.matchMedia &&
