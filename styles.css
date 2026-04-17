@@ -262,6 +262,10 @@ body {
     background-image: url('image/dag/main.gif');
 }
 
+.content-wrapper:has(.project-card--preview-genai:hover) .project-preview-overlay::after {
+    background-image: url('image/genai/main.png');
+}
+
 .about-content {
     position: relative;
     z-index: 0;

@@ -38,7 +38,7 @@
                     <span class="tag">enterprise</span>
                 </div>
                 </div>
-                <img src="image/test.png" alt="GenOS Onboarding Experience" class="project-header-image">
+                <img src="image/genai/main.png" alt="GenOS Onboarding Experience" class="project-header-image">
             </div>
 
             <div class="project-content">
@@ -76,9 +76,14 @@
                     <p>In 2023, product teams across Intuit were racing to build GenAI features into TurboTax, QuickBooks, and other products. But there was no process for ensuring those features passed legal, security, and AI reviews before shipping. The consequences were real:</p>
                     <ul class="dag-problem-list">
                         <li>Product teams didn’t know who to contact for legal, security or AI sign-off, or even that they needed to.</li>
-                        <li>Product teams wanted to move fast, but the extensive review processes were blocking them from being the pioneers in this new era.</li>
-                        <li>Program managers responsible for tracking review status were doing it entirely in spreadsheets — manually chasing dozens of teams across Slack.</li>
                         <li>There was no single source of truth on the resources, guiding teams on what to complete and when.</li>
+                        <li>Product teams wanted to move fast, but the extensive review processes were blocking them from being the pioneers in this new era.</li>
+                        <li>Program managers responsible for tracking review status were doing it entirely in spreadsheets — manually chasing dozens of teams across Slack.
+                            <figure class="dag-media-figure">
+                                <img src="image/genai/spreadsheet.png" alt="Screenshot of the spreadsheet program managers used to manually track GenAI use case review statuses" class="dag-media-img" loading="lazy" decoding="async" />
+                                <figcaption class="dag-flow-caption">A portion of the spreadsheet used to track hundreds of GenAI use cases across the company</figcaption>
+                            </figure>
+                        </li>
                     </ul>
                     <figure class="genai-problem-flow-figure">
                         <h3 class="genai-problem-flow-title">Previous process: Stakeholders were going through painful, manual, and lengthy processes.</h3>
@@ -309,21 +314,27 @@
                     </div>
                     <div class="decision-grid">
                         <article class="decision-card">
-                            <div class="decision-visual" role="img" aria-label="Use Case Registry homepage (screenshot to be added)"></div>
+                            <div class="decision-visual">
+                                <img src="image/genai/solution-overview.png" alt="Use Case Registry homepage" class="decision-img" loading="lazy" decoding="async">
+                            </div>
                             <div class="decision-text">
-                                <h3>Homepage — resources and status at a glance</h3>
-                                <p>The homepage served two audiences simultaneously. For product teams new to the process, it surfaced key resources, documentation, and guidance on what a GenAI review requires. For program managers, it was a dashboard: every registered use case, its current review stage, and any blockers.</p>
+                                <h3>Homepage — resources at a glance</h3>
+                                <p>The homepage was designed for product teams new to the process. It surfaced key resources, documentation, and guidance on what a GenAI review requires — so teams could understand what was ahead before they started building.</p>
                             </div>
                         </article>
                         <article class="decision-card">
-                            <div class="decision-visual" role="img" aria-label="Use Case Registry homepage (screenshot to be added)"></div>
+                            <div class="decision-visual">
+                                <img src="image/genai/solution-dashboard.png" alt="Program manager dashboard" class="decision-img" loading="lazy" decoding="async">
+                            </div>
                             <div class="decision-text">
-                                <h3>Register a use case — set expectations early</h3>
-                                <p>Teams registered before building — not after. Registration surfaced the full process upfront: what reviews were required, what resources were available, and what the path to launch looked like. It wasn't just intake; it was orientation.</p>
+                                <h3>Dashboard — one view for program managers</h3>
+                                <p>Program managers needed visibility across dozens of teams without manually chasing status. The dashboard automatically populated as product teams registered use cases — every statuses, its review stage, and owner surfaced in one place with no manual updates required.</p>
                             </div>
                         </article>
                         <article class="decision-card">
-                            <div class="decision-visual" role="img" aria-label="Use Case Registry homepage (screenshot to be added)"></div>
+                            <div class="decision-visual">
+                                <img src="image/genai/solution-status.png" alt="RAI Status tracking" class="decision-img" loading="lazy" decoding="async">
+                            </div>
                             <div class="decision-text">
                                 <h3>Status tracking — one view for everyone</h3>
                                 <p>Once a use case was registered and the review form assigned, teams and program managers could track the review lifecycle from a single view. Status was pulled in automatically from the third-party tool via API — no manual updates required.</p>

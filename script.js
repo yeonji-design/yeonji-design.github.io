@@ -92,7 +92,7 @@
 
         var hoverSelector =
             'a, button, .project-card, input[type="submit"], input[type="button"], input[type="reset"], summary';
-        var zoomSelector = 'img.dag-media-img';
+        var zoomSelector = '.project-main img:not(.project-header-image)';
 
         document.addEventListener('mouseover', function (e) {
             var t = e.target;
@@ -321,7 +321,7 @@ function openProject(projectId) {
 
         projectMain.addEventListener('click', function (e) {
             var target = e.target;
-            if (target.tagName !== 'IMG' || !target.classList.contains('dag-media-img')) return;
+            if (target.tagName !== 'IMG' || target.classList.contains('project-header-image')) return;
             img.src = target.src;
             img.alt = target.alt;
             overlay.classList.add('is-active');
@@ -331,7 +331,7 @@ function openProject(projectId) {
             if (zoomLabelEl) zoomLabelEl.textContent = '\u2212';
         });
 
-        var imgs = projectMain.querySelectorAll('img.dag-media-img');
+        var imgs = projectMain.querySelectorAll('img:not(.project-header-image)');
         imgs.forEach(function (el) { el.classList.add('dag-zoomable'); });
     });
 })();

@@ -948,7 +948,7 @@ body:has(.project-main) .footer {
     content: "";
     position: absolute;
     left: 0;
-    top: 50%;
+    top: calc(0.85rem + 0.8rem);
     transform: translateY(-50%);
     width: 6px;
     height: 6px;
@@ -1147,6 +1147,7 @@ body:has(.project-main) .footer {
     line-height: 1.45;
     text-align: center;
 }
+
 
 /* GenAI registry — “before” workflow diagram (step column + four swimlanes) */
 .genai-problem-flow-figure {
