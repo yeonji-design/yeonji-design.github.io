@@ -526,6 +526,229 @@ body:has(.project-main) .footer {
 .project-data-table .sev-medium { color: #ffe066; }
 .project-data-table .sev-low { color: #69db7c; }
 
+.approach-table .approach-col {
+    text-align: center;
+    width: 14%;
+}
+
+.approach-table .approach-col--chosen {
+    background-color: rgba(105, 219, 124, 0.06);
+}
+
+.approach-table thead .approach-col--chosen {
+    color: #69db7c;
+}
+
+.approach-yes {
+    color: #69db7c;
+    font-weight: 600;
+}
+
+.approach-no {
+    color: #666666;
+}
+
+/* System flow pipeline */
+.system-flow {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: nowrap;
+    margin: 1.25rem 0;
+    padding: 1rem 1.25rem;
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.system-flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2a2a2a;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    padding: 0.5rem 0.65rem;
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.system-flow-step--page {
+    border-color: #5c7cfa;
+    background-color: rgba(92, 124, 250, 0.06);
+}
+
+.system-flow-step--logic {
+    border-color: #444444;
+    border-style: dashed;
+    background-color: #222222;
+}
+
+.system-flow-step--output {
+    border-color: #69db7c;
+    background-color: rgba(105, 219, 124, 0.06);
+}
+
+.system-flow-step--page.system-flow-step--output {
+    border-color: #69db7c;
+    background-color: rgba(105, 219, 124, 0.06);
+}
+
+.system-flow-tag {
+    font-size: 0.58rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+}
+
+.system-flow-step--page .system-flow-tag { color: #5c7cfa; }
+.system-flow-step--logic .system-flow-tag { color: #888888; }
+.system-flow-step--page.system-flow-step--output .system-flow-tag { color: #69db7c; }
+
+.system-flow-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.system-flow-sub {
+    font-size: 0.65rem;
+    color: #888888;
+    margin-top: 0.15rem;
+}
+
+.system-flow-arrow {
+    color: #555555;
+    font-size: 1rem;
+}
+
+/* Cascade annotation block */
+.system-cascade {
+    margin: 1rem 0 1.5rem;
+    padding: 1rem 1.25rem;
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 8px;
+}
+
+.system-cascade-input {
+    margin-bottom: 0.75rem;
+}
+
+.system-cascade-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #333333;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    padding: 0.25rem 0.6rem;
+    font-family: ui-monospace, monospace;
+}
+
+.system-cascade-outputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.system-cascade-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: #cccccc;
+}
+
+.system-cascade-icon {
+    color: #69db7c;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* Context-sensitive scoring comparison */
+.score-context-compare {
+    margin: 1.25rem 0;
+}
+
+.score-context-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.score-context-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.score-context-card--flagged {
+    border-color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.04);
+}
+
+.score-context-app {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.score-context-app-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.score-context-multiplier {
+    font-size: 0.65rem;
+    color: #888888;
+    font-family: ui-monospace, monospace;
+}
+
+.score-context-answer {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+    font-style: italic;
+    padding: 0.4rem 0.6rem;
+    background-color: #2a2a2a;
+    border-radius: 4px;
+}
+
+.score-context-score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score-context-pts {
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: ui-monospace, monospace;
+}
+
+.score-context-verdict {
+    font-size: 0.68rem;
+    color: #888888;
+}
+
+.score-context-score--medium .score-context-pts { color: #ffe066; }
+.score-context-score--critical .score-context-pts { color: #ff6b6b; }
+
+@media (max-width: 600px) {
+    .system-flow { gap: 0.35rem; }
+    .score-context-grid { grid-template-columns: 1fr; }
+}
+
 .decision-tension {
     font-size: 0.8rem;
     font-style: italic;
@@ -1682,7 +1905,7 @@ body:has(.project-main) .footer {
     line-height: 0;
 }
 
-.dag-media-img {
+.media-img {
     width: 100%;
     height: auto;
     display: block;
@@ -1692,7 +1915,7 @@ body:has(.project-main) .footer {
 }
 
 /* One row: component.png vs component1.png at 3:2 width; shared image height */
-.dag-media-figure--pair .dag-media-img {
+.dag-media-figure--pair .media-img {
     --dag-pair-img-height: clamp(14rem, 40vh, 28rem);
     width: 100%;
     height: var(--dag-pair-img-height);
@@ -1714,7 +1937,7 @@ body:has(.project-main) .footer {
     grid-template-columns: 6fr 4fr;
 }
 
-.dag-media-row--6-4 .dag-media-figure--pair .dag-media-img {
+.dag-media-row--6-4 .dag-media-figure--pair .media-img {
     --dag-pair-img-height: clamp(10rem, 28vh, 20rem);
 }
 
@@ -1753,6 +1976,14 @@ body:has(.project-main) .footer {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.project-section-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin: 1rem 0;
 }
 
 /* Compare cards: left/right design decision layout */
@@ -2258,7 +2489,7 @@ body:has(.project-main) .footer {
 }
 
 @media (max-width: 700px) {
-    .dag-media-figure--pair .dag-media-img {
+    .dag-media-figure--pair .media-img {
         --dag-pair-img-height: clamp(11rem, 36vh, 22rem);
     }
 }
