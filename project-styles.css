@@ -478,6 +478,23 @@ body:has(.project-main) .footer {
     }
 }
 
+/* Inline single quote (overview section) */
+.project-quote-inline {
+    margin: 1.5rem 0 0;
+    padding: 0 0 0 1rem;
+    border: none;
+    border-left: 2px solid #333333;
+}
+
+.project-quote-inline p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: #777777;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
 /* Outcome: quotes & next steps */
 .project-quotes {
     display: grid;
