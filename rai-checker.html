@@ -27,15 +27,21 @@
             <div class="project-header">
                 <div class="project-header-text">
                     <h1 class="project-title">Responsible AI, Made Accessible</h1>
-                    <p class="project-subtitle">A self-assessment tool that helps solo founders and vibe coders ship AI products responsibly — without a legal team, a compliance budget, or 200 pages of regulatory reading.</p>
+                    <p class="project-subtitle">A self-assessment tool that helps solo founders and vibe coders ship AI products responsibly, without a legal team, a compliance budget, or 200 pages of regulatory reading.</p>
                     <div class="project-tags">
                         <span class="tag">Responsible AI</span>
                         <span class="tag">Systems design</span>
-                        <span class="tag">B2B / Enterprise</span>
                         <span class="tag">Self-initiated</span>
                     </div>
+                    <div class="project-live-btn-wrap">
+                        <a href="https://rai-checker.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-live-btn">
+                            View live product <span class="external-icon">↗</span>
+                        </a>
+                    </div>
                 </div>
-                <img src="image/test.png" alt="Responsible AI assessment tool prototype" class="project-header-image">
+                <div class="project-header-image-wrap">
+                    <img src="image/rai/overview.gif" alt="Responsible AI assessment tool prototype" class="project-header-image">
+                </div>
             </div>
 
             <div class="project-content">
@@ -43,7 +49,7 @@
                     <div class="project-section-heading">
                         <h2>Overview</h2>
                     </div>
-                    <p>Every week, thousands of AI-powered apps launch built by founders who can ship a product in a weekend but have never heard of the NIST AI Risk Management Framework. Existing responsible AI frameworks are written for enterprise compliance teams. That gap is where harm happens.<br><br>I designed a self-assessment tool that translates regulatory and technical complexity into a plain-language, actionable experience — one that meets solo builders where they are.</p>
+                    <p>Every week, thousands of AI-powered apps launch built by founders who can ship a product in a weekend but have never heard of the NIST AI Risk Management Framework. Existing responsible AI frameworks are written for enterprise compliance teams. That gap is where harm happens.<br><br>I designed a self-assessment tool that translates regulatory and technical complexity into a plain-language, actionable experience that meets solo builders where they are.</p>
                     <div class="project-meta">
                         <div class="project-meta-item">
                             <span class="project-meta-label">Role</span>
@@ -64,22 +70,13 @@
                     </div>
                 </div>
 
-                <div class="project-section">
+                <div class="project-section project-section--wide-heading">
                     <div class="project-section-heading">
                         <p class="project-section-caption">Problem</p>
                         <h2>The people shipping the most AI products have the least infrastructure for doing it safely</h2>
                     </div>
-                    <p>The failures aren't abstract. AI giving confident medical advice with no disclaimer. User data silently sent to third-party models for training. Chatbots with no safeguard for users in crisis. These are patterns documented in public AI incident reports — and most of them come from small teams moving fast, not bad actors.</p>
+                    <p>The failures aren't abstract. AI giving confident medical advice with no disclaimer. User data silently sent to third-party models for training. Chatbots with no safeguard for users in crisis. These are patterns documented in public AI incident reports, and most of them come from small teams moving fast, not bad actors.</p>
                     <p>Existing tools don't serve this audience. Regulatory frameworks like the EU AI Act and NIST AI RMF are written for enterprise compliance teams. There's nothing in between that's credible enough to be trustworthy and simple enough to actually get used.</p>
-                </div>
-
-                <div class="project-section">
-                    <div class="project-section-heading">
-                        <p class="project-section-caption">Design Challenge</p>
-                        <h2>Comprehensiveness is the enemy of adoption</h2>
-                    </div>
-                    <p>Responsible AI frameworks are thorough by necessity. But a tool that covers everything and takes three hours to complete gets abandoned. A tool that's too simple won't catch real harms.</p>
-                    <p>The design challenge wasn't just UX — it was translation: making regulatory and technical complexity legible and actionable without stripping out the substance that makes it meaningful.</p>
                 </div>
 
                 <div class="project-section">
@@ -93,14 +90,15 @@
                     <img src="image/rai/approach.png" alt="Approach exploration sketch" class="media-img" loading="lazy" decoding="async">
                     <div class="project-callout-box">
                         <ul>
-                            <li><span aria-hidden="true">✕</span> Most apps require login — a scanner sees a login screen, not the product.</li>
+                            <li><span aria-hidden="true">✕</span> Most apps require login, so a scanner sees a login screen, not the product.</li>
                             <li><span aria-hidden="true">✕</span> The most important risks (what data is sent to the model, what the system prompt says) live in the codebase, not the UI.</li>
                             <li><span aria-hidden="true">✕</span> Scanning produces false confidence: a clean scan doesn't mean a responsible app.</li>
                         </ul>
                     </div>
                     <p>The deeper issue: responsible AI is not a surface-level property. The questions that matter most require the founder's own knowledge. A question-based flow forces active reflection and produces structured, specific output that scanning never could.</p>
-                    <h3 class="project-subheading">Why web-based, not a plugin or CLI</h3>
-                    <p>Vibe coders won't install a tool before they've shipped. A web link requires nothing — and a shareable report URL turns the output from a private checklist into a lightweight public trust signal.</p>
+                    <h3 class="project-subheading">Why a question-based web platform</h3>
+                    <p>An automated scanner would require installation and code-level access — a security concern for founders who aren't comfortable exposing their codebase to a third-party tool. More fundamentally, it can't answer offline governance questions like <em>"Do you have a way to monitor when your AI is producing unexpected outputs in production?"</em> — the kinds of questions that live in process and intent, not DOM structure.</p>
+                    <p>A browser extension is only useful for web products, and even then it hits the same wall: most apps require login, and no extension can inspect the backend logic that matters most for responsible AI. A question-based platform sidesteps all of this — no install, no backend access, works for any app type, and can surface the governance questions that no scanner ever could.</p>
                     <div class="project-table-wrap">
                         <p class="project-table-caption">Approach considered vs. chosen</p>
                         <table class="project-data-table approach-table">
@@ -109,10 +107,22 @@
                                     <th>Criteria</th>
                                     <th class="approach-col">Automated Scanner</th>
                                     <th class="approach-col">Browser Extension</th>
-                                    <th class="approach-col approach-col--chosen">Web-based Tool</th>
+                                    <th class="approach-col approach-col--chosen">Question-based Web Platform</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>No install required</td>
+                                    <td class="approach-col"><span class="approach-no">✕</span></td>
+                                    <td class="approach-col"><span class="approach-no">✕</span></td>
+                                    <td class="approach-col approach-col--chosen"><span class="approach-yes">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>No code access needed (no security risk)</td>
+                                    <td class="approach-col"><span class="approach-no">✕</span></td>
+                                    <td class="approach-col"><span class="approach-no">✕</span></td>
+                                    <td class="approach-col approach-col--chosen"><span class="approach-yes">✓</span></td>
+                                </tr>
                                 <tr>
                                     <td>Works for all app types</td>
                                     <td class="approach-col"><span class="approach-no">✕</span></td>
@@ -120,23 +130,12 @@
                                     <td class="approach-col approach-col--chosen"><span class="approach-yes">✓</span></td>
                                 </tr>
                                 <tr>
-                                    <td>No install required</td>
-                                    <td class="approach-col"><span class="approach-yes">✓</span></td>
-                                    <td class="approach-col"><span class="approach-no">✕</span></td>
-                                    <td class="approach-col approach-col--chosen"><span class="approach-yes">✓</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Catches backend risks</td>
+                                    <td>Covers offline governance questions</td>
                                     <td class="approach-col"><span class="approach-no">✕</span></td>
                                     <td class="approach-col"><span class="approach-no">✕</span></td>
                                     <td class="approach-col approach-col--chosen"><span class="approach-yes">✓</span></td>
                                 </tr>
-                                <tr>
-                                    <td>Produces shareable output</td>
-                                    <td class="approach-col"><span class="approach-no">✕</span></td>
-                                    <td class="approach-col"><span class="approach-no">✕</span></td>
-                                    <td class="approach-col approach-col--chosen"><span class="approach-yes">✓</span></td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -178,7 +177,7 @@
                             <span class="system-flow-sub">with prioritized fixes</span>
                         </div>
                     </div>
-                    <p>One input — app type — can simultaneously change which questions appear, how they're weighted, and which examples are shown inside each question.</p>
+                    <p>One input, app type, can simultaneously change which questions appear, how they're weighted, and which examples are shown inside each question.</p>
                     <div class="system-cascade">
                         <div class="system-cascade-input">
                             <span class="system-cascade-badge">App type: Health</span>
@@ -200,7 +199,7 @@
                     </div>
 
                     <h3 class="project-subheading">The scoring model</h3>
-                    <p>A flat pass-rate is gameable — an app could answer 90% correctly but have one Critical failure that makes it dangerous to ship. I designed a weighted system:</p>
+                    <p>A flat pass-rate is gameable: an app could answer 90% correctly but have one Critical failure that makes it dangerous to ship. I designed a weighted system:</p>
                     <div class="project-table-wrap">
                         <table class="project-data-table">
                             <thead>
@@ -234,9 +233,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <p>Context multipliers apply on top — a health app gets a 1.5× multiplier on oversight questions; an agentic app gets up to 2× on autonomy risk questions. Some combinations trigger hard vetoes regardless of the overall score.</p>
+                    <p>Context multipliers apply on top: a health app gets a 1.5× multiplier on oversight questions; an agentic app gets up to 2× on autonomy risk questions. Some combinations trigger hard vetoes regardless of the overall score.</p>
                     <div class="score-context-compare">
-                        <p class="project-table-caption">Same answer, different score — context changes everything</p>
+                        <p class="project-table-caption">Same answer, different score: context changes everything</p>
                         <div class="score-context-grid">
                             <div class="score-context-card">
                                 <div class="score-context-app">
@@ -257,7 +256,7 @@
                                 <div class="score-context-answer">No system prompt guardrails</div>
                                 <div class="score-context-score score-context-score--critical">
                                     <span class="score-context-pts">−60 pts + veto flag</span>
-                                    <span class="score-context-verdict">Critical — launch blocked</span>
+                                    <span class="score-context-verdict">Critical: launch blocked</span>
                                 </div>
                             </div>
                         </div>
@@ -271,31 +270,39 @@
                     </div>
                     <div class="decision-grid">
                         <article class="decision-card">
-                            <div class="decision-visual"></div>
+                            <div class="decision-visual">
+                                <img src="image/rai/decision-notsure.png" alt="Unsure answer state in the assessment" class="decision-img" loading="lazy" decoding="async">
+                            </div>
                             <div class="decision-text">
                                 <h3>"Unsure" is a first-class answer, not a skip</h3>
-                                <p>Binary yes/no forces false confidence. Most founders genuinely don't know whether they've addressed a risk. Forcing a binary answer produces anxiety or dishonest optimism. Unsure scores at 40% — not 0% — treating awareness as real progress while still surfacing the gap.</p>
+                                <p>Binary yes/no forces false confidence. Most founders genuinely don't know whether they've addressed a risk. Forcing a binary answer produces anxiety or dishonest optimism. Unsure scores at 40%, not 0%, treating awareness as real progress while still surfacing the gap.</p>
                             </div>
                         </article>
                         <article class="decision-card">
-                            <div class="decision-visual"></div>
+                            <div class="decision-visual">
+                                <img src="image/rai/decision-fix.png" alt="Fix recommendations in the assessment report" class="decision-img" loading="lazy" decoding="async">
+                            </div>
                             <div class="decision-text">
                                 <h3>Fixes before education</h3>
-                                <p>Ethics tools tell you what's wrong. This one tells you what to do. Every failing answer surfaces a concrete fix tagged by effort — Quick, Medium, or Involved. A Quick fix might be one sentence to add to a UI. Effort tags respect that founders have limited time and prevent the tool from creating guilt without a path forward.</p>
+                                <p>Ethics tools tell you what's wrong. This one tells you what to do. Every failing answer surfaces a concrete fix tagged by effort: Quick, Medium, or Involved. A Quick fix might be one sentence to add to a UI. Effort tags respect that founders have limited time and prevent the tool from creating guilt without a path forward.</p>
                             </div>
                         </article>
                         <article class="decision-card">
-                            <div class="decision-visual"></div>
+                            <div class="decision-visual">
+                                <img src="image/rai/decision-source.png" alt="Citation links to primary regulatory sources" class="decision-img" loading="lazy" decoding="async">
+                            </div>
                             <div class="decision-text">
                                 <h3>Citation as trust infrastructure</h3>
-                                <p>Every question maps to specific articles in the EU AI Act, NIST AI RMF, OWASP LLM Top 10, or GDPR — with links to primary sources, not summaries. My CS background meant I could read these documents directly and verify the accuracy of each mapping. That's what makes this tool credible, not just usable.</p>
+                                <p>Every question maps to specific articles in the EU AI Act, NIST AI RMF, OWASP LLM Top 10, or GDPR — with links to primary sources, not summaries. That's what makes this tool credible, not just usable.</p>
                             </div>
                         </article>
                         <article class="decision-card">
-                            <div class="decision-visual"></div>
+                            <div class="decision-visual">
+                                <img src="image/rai/decision-adapt.png" alt="Adaptive question filter based on app profile" class="decision-img" loading="lazy" decoding="async">
+                            </div>
                             <div class="decision-text">
                                 <h3>Adaptive questions reduce friction</h3>
-                                <p>The 5-question app profile upfront isn't just personalization — it's a trust contract. When founders see questions about vulnerable users hidden because they said their app is internal-only, they understand the tool knows their context. This directly supports completion rate, a metric I kept in mind throughout.</p>
+                                <p>The 5-question app profile upfront isn't just personalization; it's a trust contract. When founders see questions about vulnerable users hidden because they said their app is internal-only, they understand the tool knows their context. This directly supports completion rate, a metric I kept in mind throughout.</p>
                             </div>
                         </article>
                     </div>
@@ -306,59 +313,56 @@
                         <p class="project-section-caption">Experience</p>
                         <h2>The Assessment Experience</h2>
                     </div>
-                    <p><strong>Profile flow (5 steps):</strong> Captures app type, audience, agency, data sensitivity, and jurisdiction. Steps that most change what follows (agency, data sensitivity) are designed to feel consequential so founders understand why later questions appear or disappear.</p>
-                    <p><strong>Question cards:</strong> Each item supports unanswered, Yes, No, and Unsure, plus an Is this me? pattern to split applicable vs not-applicable guidance without breaking the score model.</p>
-                    <p><strong>Report:</strong> Readiness badge, radar by category, and a prioritised fix list. Critical items show fix copy, effort tags, and framework links so the output is shareable and actionable, not just diagnostic.</p>
-                </div>
-
-                <div class="project-section">
-                    <div class="project-section-heading">
-                        <p class="project-section-caption">Stakeholders</p>
-                        <h2>Cross-functional Considerations</h2>
+                    <p><strong> 1. Profile flow (5 steps):</strong> Captures app type, audience, agency, data sensitivity, and jurisdiction. Steps that most change what follows (agency, data sensitivity) are designed to feel consequential so founders understand why later questions appear or disappear.</p>
+                    <div class="media-bg">
+                        <img src="image/rai/app.gif" alt="App profile flow walkthrough" loading="lazy" decoding="async" style="max-height: 320px; width: auto;">
                     </div>
-                    <p>Building this for real would require more than design. Thinking through the stakeholder map was part of the design process, not an afterthought.</p>
-                    <div class="feature-grid feature-grid--balanced">
-                        <div class="feature-card">
-                            <h3>Legal / Policy</h3>
-                            <p>Framework citation accuracy and ongoing regulatory maintenance as EU AI Act implementation evolves.</p>
+                    <p><strong>2. Question cards:</strong> Each item supports unanswered, Yes, No, and Unsure, plus an Is this me? pattern to split applicable vs not-applicable guidance without breaking the score model.</p>
+                    <div class="media-row">
+                        <div class="media-bg">
+                            <img src="image/rai/flow2-1.png" alt="Question card state" loading="lazy" decoding="async">
                         </div>
-                        <div class="feature-card">
-                            <h3>Engineering</h3>
-                            <p>Scoring pipeline, adaptive logic engine, and shareable report generation, all needing clean API design.</p>
+                        <div class="media-bg">
+                            <img src="image/rai/flow2-2.png" alt="Question card state" loading="lazy" decoding="async">
                         </div>
-                        <div class="feature-card">
-                            <h3>AI safety researchers</h3>
-                            <p>Open source contribution model for the question bank, with community review as LLM attack vectors evolve.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>Enterprise customers</h3>
-                            <p>API integration so compliance platforms can embed the assessment into existing workflows.</p>
-                        </div>
+                    </div>
+                    <p><strong>3. Report:</strong> Readiness badge, radar by category, and a prioritised fix list. Critical items show fix copy, effort tags, and framework links so the output is shareable and actionable, not just diagnostic.</p>
+                    <div class="media-bg">
+                        <img src="image/rai/flow3.png" alt="Assessment report" loading="lazy" decoding="async">
                     </div>
                 </div>
 
                 <div class="project-section">
                     <div class="project-section-heading">
-                        <p class="project-section-caption">Next steps</p>
-                        <h2>What I Would Do Next</h2>
+                        <p class="project-section-caption">Outcome</p>
+                        <h2>Outcome</h2>
                     </div>
-                    <p>This prototype validates the core experience. The roadmap reflects both product thinking and where the regulatory and market landscape is heading.</p>
-                    <div class="feature-grid feature-grid--balanced">
-                        <div class="feature-card">
-                            <h3>Validate</h3>
-                            <p>User testing with 5–10 vibe coders on question clarity and fix actionability. Calibrate scoring weights. Test whether readiness levels match founders' own perception of their app's safety.</p>
+                    <p>This is a prototype currently in early feedback rounds with vibe coders without technical background. The early signal is encouraging — particularly around the tool's core purpose of making unfamiliar concepts feel approachable rather than overwhelming.</p>
+                    <p>One theme emerging consistently: founders aren't aware of what guardrails they should be thinking about until the questions surface them. A few quotes from early feedback:</p>
+                    <div class="project-quotes">
+                        <blockquote class="project-quote">
+                            <p>"I didn't realize I needed to think about what happens when my AI gives a wrong answer confidently. The question made me actually go back and test for that."</p>
+                        </blockquote>
+                        <blockquote class="project-quote">
+                            <p>"The 'Is this me?' sections were the most useful part — I kept second-guessing whether each question applied to my app, and that answered it every time."</p>
+                        </blockquote>
+                        <blockquote class="project-quote">
+                            <p>"I expected to feel guilty after something like this. Instead I just had a list of things to fix. That felt different."</p>
+                        </blockquote>
+                    </div>
+                    <p><strong>What's next:</strong></p>
+                    <div class="project-next-steps">
+                        <div class="next-step-item">
+                            <span class="next-step-num">01</span>
+                            <span class="next-step-text">Shareable report output (PDF or public URL)</span>
                         </div>
-                        <div class="feature-card">
-                            <h3>V1 polish</h3>
-                            <p>Shareable report output (PDF and public link) for investors and users. Re-assessment prompt when app profile changes. Onboarding for technical founders who want deeper framework detail.</p>
+                        <div class="next-step-item">
+                            <span class="next-step-num">02</span>
+                            <span class="next-step-text">Vertical-specific modules for healthcare, fintech, and edtech</span>
                         </div>
-                        <div class="feature-card">
-                            <h3>V2 expand</h3>
-                            <p>Chrome extension scanning a live app for visible responsibility signals. Public registry of assessed apps as a soft trust signal. Open source question bank with community contribution and review.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>Long-term</h3>
-                            <p>Regulatory update pipeline. Vertical-specific modules (healthcare, fintech, edtech). API for compliance platforms to integrate the assessment.</p>
+                        <div class="next-step-item">
+                            <span class="next-step-num">03</span>
+                            <span class="next-step-text">Low-level version where vibe coders with some coding familiarity can apply it in their IDE or GitHub</span>
                         </div>
                     </div>
                 </div>
@@ -368,32 +372,12 @@
                         <p class="project-section-caption">Reflection</p>
                         <h2>Reflection</h2>
                     </div>
-                    <p class="project-callout">The hardest design problem was not the UI. It was deciding how strict to be.</p>
-                    <p>Every threshold in this tool is a judgment call with real implications. Why does Unsure score 40% and not 50%? Why do Critical questions carry so much more weight than Low? Why is the you may be fine if list intentionally shorter than the applies to you list? These decisions were not arbitrary; each reflects a considered position on user behaviour, risk tolerance, and the cost of getting it wrong in either direction.</p>
-                    <p>The tension between accessibility and rigour is what makes responsible AI design genuinely difficult. A tool that is too lenient lets harmful apps pass. A tool that is too strict will be dismissed as impractical and ignored. That is not only a UX problem; it is a values problem that expresses itself through UX.</p>
-                    <p>This project is where technical fluency, product instinct, and design craft converged most directly. It is also the kind of work I want to keep doing: designing systems at the intersection of complex domains, where the interface is the least interesting part of the challenge.</p>
+                    <p>I built this because I care about what AI does to people who didn't ask to be affected by it. The founders I had in mind aren't negligent — they're just moving fast in a space where the responsible defaults haven't been made obvious yet. I wanted to be the person who made them obvious.</p>
+                    <p>But caring about the problem wasn't enough. The harder challenge was caring about the person sitting in front of the tool. Responsible AI content is easy to make exhausting — long, abstract, full of regulatory language that makes a solo founder feel like the wrong audience. I was acutely aware that this tool could be easy to give up on, and that an abandoned assessment helps no one.</p>
+                    <p>That shaped almost every decision. Why include "Is this me?" on every question? Because founders were dropping off when they couldn't tell whether something applied to them — a moment of uncertainty that compounds into quitting. Why include specific fix examples tagged by effort? Because surfacing a problem without a path forward creates guilt, not action. The tangibility wasn't a nice-to-have. It was the whole point.</p>
+                    <p>The hardest design problem still wasn't the UI — it was deciding how strict to be. Every threshold is a judgment call with real implications. A tool that's too lenient lets harmful apps pass. A tool that's too strict gets dismissed and ignored. That tension isn't just a UX problem. It's a values problem that expresses itself through UX — and sitting with that discomfort honestly is what I think good responsible AI design actually requires.</p>
                 </div>
 
-                <div class="project-section">
-                    <div class="project-section-heading">
-                        <p class="project-section-caption">Summary</p>
-                        <h2>At a Glance</h2>
-                    </div>
-                    <div class="impact-stats">
-                        <div class="stat">
-                            <div class="stat-number">22</div>
-                            <div class="stat-label">Assessment questions</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">6</div>
-                            <div class="stat-label">Risk categories (radar)</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label">App profile inputs</div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <nav class="project-next" aria-label="Other projects">

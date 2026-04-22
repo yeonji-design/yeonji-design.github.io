@@ -179,14 +179,25 @@ body:has(.project-main) .footer {
 }
 
 .project-header-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    object-fit: cover;
+}
+
+.project-header-image-wrap {
     width: 58%;
     max-width: 720px;
     min-width: 0;
-    height: auto;
-    border-radius: 12px;
-    display: block;
-    object-fit: cover;
     flex-shrink: 0;
+    background-color: #222222;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-title {
@@ -202,6 +213,49 @@ body:has(.project-main) .footer {
     color: #aaaaaa;
     margin-bottom: 1.5rem;
     font-weight: 400;
+}
+
+.project-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+    width: 58%;
+    max-width: 720px;
+    min-width: 0;
+    flex-shrink: 0;
+}
+
+.project-header-right .project-header-image-wrap {
+    width: 100%;
+    max-width: none;
+}
+
+.project-live-btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.75rem;
+}
+
+.project-live-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0;
+    flex-shrink: 0;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    background-color: #D0FE05;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.project-live-btn:hover {
+    background-color: #c0ee00;
+    transform: translateY(-1px);
 }
 
 .project-header .project-tags {
@@ -244,6 +298,10 @@ body:has(.project-main) .footer {
     border-top: none;
     padding-top: 0;
     gap: 0 16rem;
+}
+
+.project-section--wide-heading {
+    grid-template-columns: 320px 1fr;
 }
 
 /* Sticky column: caption + title move together */
@@ -420,6 +478,87 @@ body:has(.project-main) .footer {
     }
 }
 
+/* Outcome: quotes & next steps */
+.project-quotes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+}
+
+.project-quote {
+    margin: 0;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.project-quote::before {
+    content: '\201C';
+    font-size: 3rem;
+    line-height: 1;
+    color: #D0FE05;
+    font-family: Georgia, serif;
+    display: block;
+    margin-bottom: -0.5rem;
+}
+
+.project-quote p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: #aaaaaa;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+    flex: 1;
+}
+
+@media (max-width: 700px) {
+    .project-quotes {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-next-steps {
+    margin: 0.75rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.next-step-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1.1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #2e2e2e;
+    border-radius: 8px;
+}
+
+.next-step-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: ui-monospace, monospace;
+    color: #D0FE05;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+}
+
+.next-step-text {
+    font-size: 0.875rem;
+    color: #cccccc;
+    line-height: 1.5;
+}
+
 /* Case study: callouts & tables (rai-checker) */
 .project-callout {
     border-left: 4px solid #D0FE05;
@@ -525,6 +664,10 @@ body:has(.project-main) .footer {
 .project-data-table .sev-high { color: #ffa94d; }
 .project-data-table .sev-medium { color: #ffe066; }
 .project-data-table .sev-low { color: #69db7c; }
+
+.approach-table {
+    font-size: 0.75rem;
+}
 
 .approach-table .approach-col {
     text-align: center;
@@ -1912,6 +2055,35 @@ body:has(.project-main) .footer {
     border-radius: 12px;
     border: 1px solid #333333;
     background-color: #222222;
+}
+
+.media-row {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.media-row .media-bg {
+    flex: 1;
+    margin: 0;
+}
+
+.media-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222222;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1rem 0;
+}
+
+.media-bg img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    border-radius: 6px;
 }
 
 /* One row: component.png vs component1.png at 3:2 width; shared image height */
