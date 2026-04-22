@@ -35,7 +35,9 @@
                         <span class="tag">enterprise</span>
                     </div>
                 </div>
-                <img src="image/dag/main.gif" alt="Visual editor for data pipelines — Intuit Batch Processing Platform" class="project-header-image">
+                <div class="project-header-image-wrap">
+                    <img src="image/dag/main.gif" alt="Visual editor for data pipelines at Intuit Batch Processing Platform" class="project-header-image">
+                </div>
             </div>
 
             <div class="project-content">
@@ -70,15 +72,15 @@
                         <h2>Data engineers were drowning in invisible dependencies</h2>
                     </div>
                     <div class="dag-section-stack">
-                        <p>Intuit’s Batch Processing Platform powered thousands of data pipelines for products like TurboTax and QuickBooks. As pipelines grew in complexity — some with 30+ processing steps — a set of critical problems emerged:</p>
+                        <p>Intuit’s Batch Processing Platform powered thousands of data pipelines for products like TurboTax and QuickBooks. As pipelines grew in complexity, some with 30+ processing steps, a set of critical problems emerged:</p>
                         <ul class="dag-problem-list">
-                            <li>Dependencies were buried in code — no way to visually trace how pipeline tasks related to each other.</li>
+                            <li>Dependencies were buried in code with no way to visually trace how pipeline tasks related to each other.</li>
                             <li>Debugging failures meant mentally reconstructing execution order across multiple config files.</li>
                             <li>New engineers faced weeks of onboarding with no visual map of data flow.</li>
                         </ul>
                         <figure class="dag-media-figure">
                             <img src="image/dag/problem.png" alt="Pipeline configuration and dependencies buried in code and config, without a visual graph" class="media-img" loading="lazy" decoding="async">
-                            <figcaption class="dag-flow-caption">Pipeline dependencies buried in code and config files — no visual overview of how processors connect</figcaption>
+                            <figcaption class="dag-flow-caption">Pipeline dependencies buried in code and config files, with no visual overview of how processors connect</figcaption>
                         </figure>
                         <!--<div class="dag-stat-row">
                             <div class="dag-stat-card">
@@ -107,7 +109,7 @@
                         <h2>A visual dependency graph for pipeline authoring and debugging</h2>
                     </div>
                     <div class="dag-section-stack">
-                        <p>The final design is a canvas-based DAG (Directed Acyclic Graph) editor embedded within the pipeline configuration experience. Engineers <span class="text-highlight">author on the canvas—no hand-written dependency config.</span></p>
+                        <p>The final design is a canvas-based DAG (Directed Acyclic Graph) editor embedded within the pipeline configuration experience. Engineers <span class="text-highlight">author on the canvas, with no hand-written dependency config.</span></p>
                         <figure class="dag-journey-wrap">
                             <div class="dag-journey-diagram">
                                 <div class="dag-journey-step">
@@ -154,7 +156,7 @@
                         </figure>-->
                         <figure class="dag-media-figure">
                             <img src="image/dag/solution.png" alt="Canvas-based DAG editor showing pipeline nodes and connections" class="media-img" loading="lazy" decoding="async">
-                            <figcaption class="dag-flow-caption">The full DAG editor canvas — engineers drag, connect, and configure pipeline nodes in place</figcaption>
+                            <figcaption class="dag-flow-caption">The full DAG editor canvas where engineers drag, connect, and configure pipeline nodes in place</figcaption>
                         </figure>
                         <div class="dag-media-row">
                             <figure class="dag-media-figure dag-media-figure--pair">
@@ -168,10 +170,10 @@
                         <figure class="dag-media-figure">
                             <img src="image/dag/solution-debug.png" alt="Debug and execution view" class="media-img" loading="lazy" decoding="async">
                         </figure>
-                        <figcaption class="dag-flow-caption">Debugging at node level — engineers can see the error message and the trace error in the graph</figcaption>
+                        <figcaption class="dag-flow-caption">Debugging at node level: engineers can see the error message and the trace error in the graph</figcaption>
                         <figure class="dag-media-figure">
                             <img src="image/dag/solution-run.png" alt="Run history and Airflow integration" class="media-img" loading="lazy" decoding="async">
-                            <figcaption class="dag-flow-caption">Run history of pipelines — monitoring runs and debugging failures back in the graph</figcaption>
+                            <figcaption class="dag-flow-caption">Run history of pipelines for monitoring runs and debugging failures back in the graph</figcaption>
                         </figure>
                     </div>
                 </div>
@@ -186,14 +188,14 @@
                         <div class="dag-quote-grid">
                             <blockquote class="dag-quote">
                                 <p>“I have to open 4 different files and mentally trace the execution order. One wrong link and the whole pipeline fails silently at 2 AM.”</p>
-                                <footer>— Senior Data Engineer, TurboTax team</footer>
+                                <footer>Senior Data Engineer, TurboTax team</footer>
                             </blockquote>
                             <blockquote class="dag-quote">
-                                <p>“When I joined, it took me 3 weeks just to understand one pipeline. There’s no picture of how data flows — just a wall of YAML.”</p>
-                                <footer>— Junior Data Engineer, onboarded 2 months prior</footer>
+                                <p>“When I joined, it took me 3 weeks just to understand one pipeline. There’s no picture of how data flows, just a wall of YAML.”</p>
+                                <footer>Junior Data Engineer, onboarded 2 months prior</footer>
                             </blockquote>
                         </div>
-                        <p>The core insight was that engineers thought about pipelines as a graph — a directed flow of processors and data assets with clear dependencies — but the tooling forced them to work in a flat, linear config format. This mismatch between mental model and tool was the root cause of slow debugging, risky deployments, and painful onboarding.</p>
+                        <p>The core insight was that engineers thought about pipelines as a graph, a directed flow of processors and data assets with clear dependencies, but the tooling forced them to work in a flat, linear config format. This mismatch between mental model and tool was the root cause of slow debugging, risky deployments, and painful onboarding.</p>
                     </div>
                 </div>-->
 
@@ -214,7 +216,7 @@
                                 </div>
                                 <div class="decision-text">
                                     <h3>Processor-first view with expand/collapse</h3>
-                                    <p>Pipelines can have dozens of processors, so <span class="text-highlight">processors only at first—expand for assets.</span> Users can expand any processor to reveal its input and output data assets, and collapse it back when they need the big picture.</p>
+                                    <p>Pipelines can have dozens of processors, so <span class="text-highlight">processors only at first, expand for assets.</span> Users can expand any processor to reveal its input and output data assets, and collapse it back when they need the big picture.</p>
                                 </div>
                             </article>
                             <article class="decision-card">
@@ -223,7 +225,7 @@
                                 </div>
                                 <div class="decision-text">
                                     <h3>Panel for configuring processors and data assets</h3>
-                                    <p>Selecting a node opens a configuration panel with input fields. <span class="text-highlight">No modal—the graph stays in view.</span></p>
+                                    <p>Selecting a node opens a configuration panel with input fields. <span class="text-highlight">No modal; the graph stays in view.</span></p>
                                 </div>
                             </article>
                             <article class="decision-card">
@@ -274,7 +276,7 @@
                                     </div>
                                 </div>
                                 <div class="dag-compare-merge">
-                                    <p class="dag-compare-merge-text">I selected <strong>Option B</strong> — to give users more flexibility on designing the pipeline structure. <span class="text-highlight">Validation on Run or Save</span> prevents empty nodes from shipping.</p>
+                                    <p class="dag-compare-merge-text">I selected <strong>Option B</strong> to give users more flexibility on designing the pipeline structure. <span class="text-highlight">Validation on Run or Save</span> prevents empty nodes from shipping.</p>
                                     <div class="dag-compare-merge-img-wrap">
                                         <img src="image/dag/solution-val.png" class="dag-compare-merge-img" loading="lazy" decoding="async">
                                     </div>
@@ -292,7 +294,7 @@
                     <div class="dag-section-stack">
                         <p><strong>Graph-first, code-second.</strong> I designed a toggle between the visual graph and the generated code view. The graph is the primary authoring surface, but engineers can always inspect the underlying Airflow config. This dual-mode approach respects both visual thinkers and those who need code-level control.</p>
                         <p><strong>Progressive disclosure through node expansion.</strong> Processor nodes start collapsed (showing name and type) and expand to reveal input/output data assets on demand. This prevents visual overload in complex pipelines while keeping all information one click away.</p>
-                        <p><strong>Contextual configuration, not modal interruption.</strong> Clicking a node opens a side panel rather than a modal dialog. This preserves spatial context — engineers can see where a processor sits in the graph while configuring its Spark resources, runtime engine, and time dependencies.</p>
+                        <p><strong>Contextual configuration, not modal interruption.</strong> Clicking a node opens a side panel rather than a modal dialog. This preserves spatial context, so engineers can see where a processor sits in the graph while configuring its Spark resources, runtime engine, and time dependencies.</p>
                         <p><strong>Error states with pipeline-level awareness.</strong> When a pipeline has validation issues, the system surfaces errors at the page level with specific guidance, and individual nodes with problems receive visual indicators. This transforms cryptic deployment failures into preventable, in-context warnings.</p>
                         <ul class="dag-tag-list" aria-label="Themes">
                             <li><span class="dag-tag dag-tag--green">Design thinking</span></li>
@@ -337,7 +339,7 @@
                         <h2>What I learned</h2>
                     </div>
                     <div class="dag-section-stack">
-                        <p>This project reinforced that the best developer tools don’t abstract away complexity — <span class="text-highlight">they make complexity legible.</span> The DAG editor didn’t remove the underlying configuration; it gave engineers a spatial, visual representation that matched how they already thought about their work.</p>
+                        <p>This project reinforced that the best developer tools don’t abstract away complexity; <span class="text-highlight">they make complexity legible.</span> The DAG editor didn’t remove the underlying configuration; it gave engineers a spatial, visual representation that matched how they already thought about their work.</p>
                         <p>Working on an internal platform also taught me the value of <span class="text-highlight">designing for trust.</span> Data engineers needed to be confident that the visual tool was generating correct, production-ready configurations. I addressed this through the code view toggle, transparent error messaging, and by involving engineers deeply in the design review process.</p>
                     </div>
                 </div>
