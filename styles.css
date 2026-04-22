@@ -247,7 +247,7 @@ body {
     position: absolute;
     inset: 0;
     background-color: transparent;
-    background-image: url('image/test.png');
+    background-image: none;
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -295,7 +295,7 @@ body {
 }
 
 .intro-highlight {
-    font-weight: 700;
+    font-weight: 600;
     color: #ffffff;
 }
 
@@ -309,8 +309,7 @@ body {
     line-height: inherit;
     font-style: normal;
     font-weight: 500;
-    color: #d5d5d5;
-    letter-spacing: 0.02em;
+    color: #ececec;
 }
 
 .company-link {

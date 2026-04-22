@@ -48,7 +48,7 @@
                     <div class="project-section-heading">
                         <h2>Overview</h2>
                     </div>
-                    <p>When generative AI emerged, Intuit needed to ship GenAI features fast to products like QuickBooks, TurboTax, and Mailchimp, but without a process to ensure legal, security, and AI reviews, the company could be exposed. I designed a centralized hub where product teams could register their GenAI use cases, connect to Intuit's GenAI capabilities,track review status, and get everything they needed to launch responsibly. More than 7.6k use cases have been registered through the platform.</p>
+                    <p>When generative AI emerged, Intuit needed to ship GenAI features fast to products like QuickBooks, TurboTax, and Mailchimp, but without a process to ensure legal, security, and AI reviews, the company could be exposed. I designed a <span class="text-highlight">centralized hub where product teams could register their GenAI use cases, connect to Intuit's GenAI capabilities, track review status, and get everything they needed to launch responsibly.</span> More than 7.6k use cases have been registered through the platform.</p>
                     <div class="project-meta">
                         <div class="project-meta-item">
                             <span class="project-meta-label">My Role</span>
@@ -77,10 +77,10 @@
                     <div class="dag-section-stack">
                     <p>In 2023, product teams across Intuit were racing to build GenAI features into TurboTax, QuickBooks, and other products. But there was no process for ensuring those features passed legal, security, and AI reviews before shipping. The consequences were real:</p>
                     <ul class="dag-problem-list">
-                        <li>Product teams didn’t know who to contact for legal, security or AI sign-off, or even that they needed to.</li>
-                        <li>There was no single source of truth on the resources, guiding teams on what to complete and when.</li>
-                        <li>Product teams wanted to move fast, but the extensive review processes were blocking them from being the pioneers in this new era.</li>
-                        <li>Program managers responsible for tracking review status were doing it entirely in spreadsheets, manually chasing dozens of teams across Slack.
+                        <li>Product teams <span class="text-highlight">didn’t know who to contact</span> for legal, security or AI sign-off, or even that they needed to.</li>
+                        <li>There was <span class="text-highlight">no single source of truth on the resources</span>, guiding teams on what to complete and when.</li>
+                        <li>Product teams wanted to move fast, but the <span class="text-highlight">extensive review processes were blocking</span> them from being the pioneers in this new era.</li>
+                        <li>Program managers responsible for tracking review status were doing it entirely in spreadsheets, <span class="text-highlight">manually chasing dozens of teams</span> across Slack.
                             <figure class="dag-media-figure">
                                 <img src="image/genai/spreadsheet.png" alt="Screenshot of the spreadsheet program managers used to manually track GenAI use case review statuses" class="media-img" loading="lazy" decoding="async" />
                                 <figcaption class="dag-flow-caption">A portion of the spreadsheet used to track hundreds of GenAI use cases across the company</figcaption>
@@ -198,7 +198,7 @@
                     </div>
                     <p>This project had no clear precedent internally. GenAI governance frameworks were still being written industry-wide, and I was designing a system before the rules were fully defined. My first priority was understanding who was in pain and what the minimum viable process needed to look like.</p>
                     <h3 class="project-subheading">Stakeholder mapping</h3>
-                    <p>I identified four distinct user groups with conflicting needs: product teams (wanted speed and clarity), program managers (needed visibility and control), legal reviewers (needed structured input, not ad-hoc requests), and security reviewers (needed consistent, complete submissions). Designing for all four without creating a bloated product was the central challenge.</p>
+                    <p>I identified four distinct user groups with conflicting needs. Designing for all four without creating a bloated product was the central challenge.</p>
                     
                     <div class="genai-stakeholder-table-wrap">
                         <table class="genai-stakeholder-table">
@@ -226,7 +226,7 @@
                     
                     <h3 class="project-subheading">The build vs. buy decision</h3>
                     <p>One of the most consequential design decisions wasn't visual; it was architectural. The review form required product teams to answer detailed legal, security, and AI questions, update documents, and communicate through the comments in Google Docs with reviewers over time. Building this natively would have consumed months of engineering time we didn't have.</p>
-                    <p>I evaluated third-party review tools and proposed integrating an existing platform via API rather than building the form experience from scratch. This let us ship the end-to-end experience in a fraction of the time, while the registry hub handled what only we could build: intake, resource access, status visibility, and configuration.</p>
+                    <p>I evaluated third-party review tools and <span class="text-highlight">proposed integrating an existing platform via API</span> rather than building the form experience from scratch. This let us ship the end-to-end experience in a fraction of the time, while the registry hub handled what only we could build: intake, resource access, status visibility, and configuration.</p>
                     
                 </div>
 
@@ -321,7 +321,7 @@
                             </div>
                             <div class="decision-text">
                                 <h3>Homepage: resources at a glance</h3>
-                                <p>The homepage was designed for product teams new to the process. It surfaced key resources, documentation, and guidance on what a GenAI review requires, so teams could understand what was ahead before they started building.</p>
+                                <p>The homepage was designed for product teams new to the process. It surfaced <span class="text-highlight">key resources, documentation, and guidance</span> on what a GenAI review requires, so teams could understand what was ahead before they started building.</p>
                             </div>
                         </article>
                         <article class="decision-card">
@@ -330,7 +330,7 @@
                             </div>
                             <div class="decision-text">
                                 <h3>Dashboard: one view for program managers</h3>
-                                <p>Program managers needed visibility across dozens of teams without manually chasing status. The dashboard automatically populated as product teams registered use cases, with each submission's review stage and owner surfaced in one place with no manual updates required.</p>
+                                <p>Program managers needed visibility across dozens of teams <span class="text-highlight">without manually chasing status.</span> The dashboard automatically populated as product teams registered use cases, with each submission's review stage and owner surfaced in one place with no manual updates required.</p>
                             </div>
                         </article>
                         <article class="decision-card">
@@ -339,7 +339,7 @@
                             </div>
                             <div class="decision-text">
                                 <h3>Status tracking: one view for everyone</h3>
-                                <p>Once a use case was registered and the review form assigned, teams and program managers could track the review lifecycle from a single view. Status was pulled in automatically from the third-party tool via API, with no manual updates required.</p>
+                                <p>Once a use case was registered and the review form assigned, teams and program managers could track the review lifecycle from a single view. <span class="text-highlight">Status was pulled in automatically from the third-party tool via API</span>, with no manual updates required.</p>
                             </div>
                         </article>
                     </div>
@@ -353,15 +353,15 @@
                     <div class="genai-decisions">
                         <div class="genai-decision">
                             <h3 class="project-subheading">Decision 1: Don't build the review form natively</h3>
-                            <p>The temptation was to design a fully custom form experience inside the hub. I pushed back on this. The review form needed version history, comment threads, document attachments, and collaborative editing, all features that would take months to build well. Using a third-party tool via API let us focus engineering resources on the parts only we could build: intake, routing, and status visibility. The tradeoff was some loss of visual consistency, but product teams already used the third-party tool in other contexts, which reduced friction.</p>
+                            <p>The temptation was to design a fully custom form experience inside the hub. I pushed back on this. The review form needed version history, comment threads, document attachments, and collaborative editing, all features that would take months to build well. Using a third-party tool via API let us <span class="text-highlight">focus engineering resources on the parts only we could build: intake, routing, and status visibility.</span> The tradeoff was some loss of visual consistency, but product teams already used the third-party tool in other contexts, which reduced friction.</p>
                         </div>
                         <div class="genai-decision">
                             <h3 class="project-subheading">Decision 2: One hub, not separate tools per audience</h3>
-                            <p>Early conversations surfaced a suggestion to build separate interfaces for reviewers vs. product teams. I argued against this; a single hub with role-based views would reduce fragmentation and give program managers a unified view across all use cases. The shared surface also made it easier to add future use case types without rebuilding.</p>
+                            <p>Early conversations surfaced a suggestion to build separate interfaces for reviewers vs. product teams. I argued against this; a single hub with role-based views would reduce fragmentation and <span class="text-highlight">give program managers a unified view across all use cases.</span> The shared surface also made it easier to add future use case types without rebuilding.</p>
                         </div>
                         <div class="genai-decision">
                             <h3 class="project-subheading">Decision 3: Registration as orientation, not just intake</h3>
-                            <p>The old flow had a painful failure mode: teams would build a GenAI feature, then discover at launch that they needed legal and security sign-off and get blocked. I designed registration to happen before building, so teams could see what reviews were required, what resources were available, and what the path to launch actually looked like. The form itself was kept short by design, just enough to route teams correctly and set expectations. The detailed review questions came later, via the third-party tool, when teams were ready for them.</p>
+                            <p>The old flow had a painful failure mode: teams would build a GenAI feature, then discover at launch that they needed legal and security sign-off and get blocked. I designed <span class="text-highlight">registration to happen before building, so teams could see what reviews were required, what resources were available, and what the path to launch actually looked like.</span> The form itself was kept short by design, just enough to route teams correctly and set expectations. The detailed review questions came later, via the third-party tool, when teams were ready for them.</p>
                         </div>
                     </div>
                 </div>
@@ -376,7 +376,6 @@
                         <li>7,600 use cases registered through the platform</li>
                         <li>Eliminated manual tracking for program managers across multiple business units</li>
                         <li>Reduced launch risk by ensuring legal and security review was a required step, not an optional one</li>
-                        <li>Shipped and in production use within [X weeks/months] of project kickoff</li>
                     </ul>
                 </div>
 
@@ -386,8 +385,8 @@
                         <h2>What this project taught me about designing in ambiguity</h2>
                     </div>
                     <p>This was one of the most ambiguous projects I've worked on, not because the UX was complex, but because the problem itself was still being defined. Governance frameworks for GenAI didn't exist yet. I was designing a process for a thing the company was still figuring out how to govern.</p>
-                    <p>What I learned is that in fast-moving, high-stakes situations, the designer's job is often to create the container: a structure that gives people clarity even when the rules inside it are still evolving. The hub wasn't sophisticated, but it replaced chaos with legibility. Sometimes that's the most valuable thing you can ship.</p>
-                    <p>I also learned that the hardest design decisions on this project weren't about screens; they were about scope. Deciding what not to build (a native review form, separate tools per audience, a complex notification system) was as important as anything I designed.</p>
+                    <p>What I learned is that in fast-moving, high-stakes situations, the designer's job is often to <span class="text-highlight">create the container: a structure that gives people clarity even when the rules inside it are still evolving.</span> The hub wasn't sophisticated, but it replaced chaos with legibility. Sometimes that's the most valuable thing you can ship.</p>
+                    <p>I also learned that the hardest design decisions on this project weren't about screens; they were about scope. <span class="text-highlight">Deciding what not to build</span> was as important as anything I designed.</p>
                 </div>
             </div>
 
