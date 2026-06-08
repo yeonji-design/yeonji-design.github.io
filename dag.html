@@ -367,11 +367,12 @@
                 <div class="project-section">
                     <div class="project-section-heading">
                         <p class="project-section-caption">Reflection</p>
-                        <h2>What I learned</h2>
+                        <h2>Balancing complexity was the core design challenge</h2>
                     </div>
                     <div class="dag-section-stack">
-                        <p>This project reinforced that the best developer tools don’t abstract away complexity; <span class="text-highlight">they make complexity legible.</span> The DAG editor didn’t remove the underlying configuration; it gave engineers a spatial, visual representation that matched how they already thought about their work.</p>
-                        <p>Working on an internal platform also taught me the value of <span class="text-highlight">designing for trust.</span> Data engineers needed to be confident that the visual tool was generating correct, production-ready configurations. I addressed this through the code view toggle, transparent error messaging, and by involving engineers deeply in the design review process.</p>
+                        <p><span class="text-highlight">Technical users need detail.</span> When configuring a processor or debugging a failure, every piece of information matters. But <span class="text-highlight">they also need a clear overview</span> to understand a pipeline's structure at a glance. These two needs pull in opposite directions.</p>
+                        <p><span class="text-highlight">The design resolves this tension through layering.</span> Expand and collapse lets engineers switch between big-picture and detail modes. Metadata on each node surfaces just enough context without cluttering the canvas. The side panel keeps configuration detail contained while the full graph stays visible. And when something fails, the error lives on the graph itself, in the spatial context where debugging actually happens.</p>
+                        <p>The result isn't a simpler tool. It's a tool that <span class="text-highlight">meets engineers at whatever level of detail they need, exactly when they need it.</span></p>
                     </div>
                 </div>
             </div>
