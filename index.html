@@ -45,13 +45,9 @@
                     <p class="experience-text">
                         Currently @ <a href="https://intuit.com" target="_blank" rel="noopener noreferrer" class="company-link">Intuit</a>'s AI+Data org, leading design on data processing platforms.
                     </p>
-                    <div class="identity-line">
-                        <span class="korean-flag">🇰🇷</span>
-                        <span class="korean-name">연지</span>
-                        <span class="separator">|</span>
-                        <span class="location-pin">📍</span>
-                        <span class="location">San Jose, CA</span>
-                    </div>
+                    <button type="button" class="about-more-btn" id="aboutMoreBtn">
+                        more about me <span class="external-icon">→</span>
+                    </button>
                 </div>
             </section>
 
@@ -123,6 +119,45 @@
             </a>
         </div>
     </footer>
+
+    <!-- More About Me Modal -->
+    <div class="about-modal-overlay" id="aboutModalOverlay" aria-hidden="true">
+        <div class="about-modal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
+            <div class="about-modal-header">
+                <h2 id="aboutModalTitle" class="about-modal-title">About me</h2>
+                <button type="button" class="about-modal-close" id="aboutModalClose" aria-label="Close">✕</button>
+            </div>
+            <div class="about-modal-gallery">
+                <div class="about-modal-photo" data-placeholder="Add image/about/art.JPG">
+                    <img src="image/about/art.JPG" alt="Yeonji Kim" loading="lazy">
+                </div>
+                <div class="about-modal-photo" data-placeholder="Add image/about/concert.jpg">
+                    <img src="image/about/concert.jpg" alt="Yeonji Kim" loading="lazy">
+                </div>
+                <div class="about-modal-photo" data-placeholder="Add image/about/disney.jpg">
+                    <img src="image/about/disney.jpg" alt="Yeonji Kim" loading="lazy">
+                </div>
+            </div>
+            <div class="about-modal-body">
+                <p>I started college studying law, where I became interested in how people interpret systems, make decisions, and navigate complexity. When I later discovered 💭 UX design, it felt like an extension of those same interests, applied in a more hands-on and creative way.</p>
+                <p>That curiosity eventually led me to study 🤖 computer science as well, because I wanted to understand not just the people I was designing for, but also the technical systems behind the products themselves.</p>
+                <p>Having both design and technical foundations has shaped the way I work today. I enjoy 💡 translating complex systems into experiences that feel clear, useful, and approachable for people who may not have technical backgrounds. I tend to think beyond individual screens or flows and focus on the bigger picture: the product strategy, the operational constraints, and how decisions impact users across the entire experience.</p>
+                <p>That mindset led me to work as a product manager at an early-stage startup, and later to design enterprise AI and data platforms at <a href="https://www.intuit.com/" target="_blank" rel="noopener noreferrer" class="company-link">Intuit</a>, where I’ve led multiple products as the sole designer in close collaboration with cross-functional teams. I’m especially excited by complex domains like AI, developer tools, and enterprise systems, where thoughtful UX can make a meaningful difference in how people work.</p>
+                <p>Outside of work, I love ✈️ traveling to new cities and learning through their history, culture, architecture, and art. I usually end up spending hours in local museums, walking through neighborhoods, and finding the places locals actually love. I’m also a huge ⚾️ baseball fan, so I’m always happy to talk about great stadiums, travel recommendations, or your favorite team.</p>
+            </div>
+            <div class="about-modal-links">
+                <a href="Resume_Yeonji_Kim.pdf" class="about-modal-link-btn" target="_blank">
+                    Resume <span class="external-icon">↗</span>
+                </a>
+                <a href="https://www.linkedin.com/in/yeonji-kim/" target="_blank" class="about-modal-link-btn">
+                    LinkedIn <span class="external-icon">↗</span>
+                </a>
+                <a href="mailto:yeonjikim.design@gmail.com" class="about-modal-link-btn">
+                    Email me <span class="external-icon">↗</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

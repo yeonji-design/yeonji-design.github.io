@@ -379,6 +379,231 @@ body {
     font-weight: 300;
 }
 
+.about-more-btn {
+    margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.1rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: Aspekta Variable, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.about-more-btn .external-icon {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-more-btn:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-color: rgba(208, 254, 5, 0.5);
+    color: #D0FE05;
+}
+
+.about-more-btn:hover .external-icon {
+    transform: translateX(3px);
+}
+
+/* More About Me Modal */
+.about-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.about-modal-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.about-modal {
+    position: relative;
+    width: 100%;
+    max-width: 920px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background-color: #212121;
+    border: 1px solid #333333;
+    border-radius: 16px;
+    padding: 2.5rem;
+    transform: translateY(12px);
+    transition: transform 0.25s ease;
+}
+
+.about-modal-overlay.is-active .about-modal {
+    transform: translateY(0);
+}
+
+.about-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-modal-close {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.about-modal-close:hover {
+    color: #1a1a1a;
+    background-color: #D0FE05;
+}
+
+.about-modal-title {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: Aspekta Variable, sans-serif;
+}
+
+.about-modal-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 1.25rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 0 1.5rem;
+}
+
+.about-modal-photo {
+    position: relative;
+    flex-shrink: 0;
+    width: 180px;
+    background-color: #f2f2f2;
+    padding: 8px 8px 22px;
+    border-radius: 3px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-modal-photo:nth-child(1) {
+    transform: rotate(-6deg);
+}
+
+.about-modal-photo:nth-child(2) {
+    transform: rotate(4deg) translateY(-8px);
+}
+
+.about-modal-photo:nth-child(3) {
+    transform: rotate(-3deg) translateY(4px);
+}
+
+.about-modal-photo:hover {
+    transform: rotate(0deg) translateY(-4px) scale(1.04);
+    z-index: 1;
+}
+
+.about-modal-photo img {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    display: block;
+    border-radius: 1px;
+}
+
+.about-modal-photo.is-missing img {
+    display: none;
+}
+
+.about-modal-photo.is-missing::after {
+    content: attr(data-placeholder);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 225px;
+    padding: 0.5rem;
+    font-size: 0.6rem;
+    color: #888888;
+    background-color: #2a2a2a;
+    border-radius: 1px;
+}
+
+.about-modal-body p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #aaaaaa;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.about-modal-body p:last-child {
+    margin-bottom: 0;
+}
+
+.about-modal-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.about-modal-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.1rem;
+    background-color: transparent;
+    border: 1px solid #3d3d3d;
+    border-radius: 999px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Aspekta Variable, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.about-modal-link-btn:hover {
+    border-color: #D0FE05;
+    color: #D0FE05;
+}
+
+@media (max-width: 640px) {
+    .about-modal {
+        padding: 2rem 1.5rem;
+    }
+
+    .about-modal-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Projects Section */
 .projects-section {
     width: 100%;
@@ -551,6 +776,25 @@ body {
 @media (max-width: 1200px) {
     .project-card {
         flex-direction: column;
+    }
+}
+
+/* Below this width the about-section's fixed-height flex layout can't fit
+   the intro copy + button, causing it to overlap the projects list. Let the
+   page scroll naturally instead of clipping/overlapping content. */
+@media (max-width: 640px) {
+    .main-content {
+        height: auto;
+        min-height: calc(100vh - 100px);
+    }
+
+    .about-section {
+        flex: none;
+    }
+
+    body {
+        height: auto;
+        min-height: 100vh;
     }
 }
 

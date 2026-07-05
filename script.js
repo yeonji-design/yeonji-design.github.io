@@ -336,6 +336,46 @@ function openProject(projectId) {
     });
 })();
 
+// More About Me modal
+(function initAboutModal() {
+    document.addEventListener('DOMContentLoaded', function () {
+        var openBtn = document.getElementById('aboutMoreBtn');
+        var overlay = document.getElementById('aboutModalOverlay');
+        var closeBtn = document.getElementById('aboutModalClose');
+        if (!openBtn || !overlay || !closeBtn) return;
+
+        function open() {
+            overlay.classList.add('is-active');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function close() {
+            overlay.classList.remove('is-active');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        openBtn.addEventListener('click', open);
+        closeBtn.addEventListener('click', close);
+
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) close();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && overlay.classList.contains('is-active')) close();
+        });
+
+        var photoImgs = overlay.querySelectorAll('.about-modal-photo img');
+        photoImgs.forEach(function (img) {
+            img.addEventListener('error', function () {
+                img.closest('.about-modal-photo').classList.add('is-missing');
+            });
+        });
+    });
+})();
+
 // Add smooth transitions to header links
 document.addEventListener('DOMContentLoaded', function() {
     const headerLinks = document.querySelectorAll('.header-link');
