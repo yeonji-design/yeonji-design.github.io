@@ -283,7 +283,7 @@ body {
     line-height: 1.7;
     margin-bottom: 0.5rem;
     color: #aaaaaa;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .intro-text em {
@@ -295,7 +295,7 @@ body {
 }
 
 .intro-highlight {
-    font-weight: 600;
+    font-weight: 500;
     color: #ffffff;
 }
 
@@ -557,7 +557,7 @@ body {
     font-size: 1rem;
     line-height: 1.7;
     color: #aaaaaa;
-    font-weight: 400;
+    font-weight: 300;
     margin-bottom: 1rem;
 }
 

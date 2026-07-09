@@ -351,7 +351,7 @@ body:has(.project-main) .footer {
     line-height: 1.6;
     color: #aaaaaa;
     margin-bottom: 1rem;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .project-section ul, .project-section ol {
@@ -2212,7 +2212,7 @@ body:has(.project-main) .footer {
 
 .dag-compare-merge-text strong {
     color: #ffffff;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .dag-compare-merge-img-wrap {
