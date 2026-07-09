@@ -271,12 +271,42 @@ function openProject(projectId) {
         'genai-registry': 'genai-registry.html',
         'responsible-ai-checker': 'rai-checker.html'
     };
-    
+
     const projectPage = projectPages[projectId];
     if (projectPage) {
+        if (typeof gtag === 'function') {
+            gtag('event', 'project_click', {
+                event_category: 'engagement',
+                project_id: projectId,
+                source: 'homepage'
+            });
+        }
         window.location.href = projectPage;
     }
 }
+
+// Generic link tracking: fires a GA event with the link type, where it was
+// clicked from (header/footer/modal), and which page it happened on, so
+// clicks can be broken down by source instead of just totaled.
+(function initLinkTracking() {
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof gtag !== 'function') return;
+
+        var page = document.body.getAttribute('data-page') || 'unknown';
+        var trackedLinks = document.querySelectorAll('[data-track]');
+
+        trackedLinks.forEach(function (el) {
+            el.addEventListener('click', function () {
+                gtag('event', 'link_click', {
+                    event_category: 'engagement',
+                    link_type: el.getAttribute('data-track'),
+                    source: el.getAttribute('data-track-source') || 'unknown',
+                    page: page
+                });
+            });
+        });
+    });
+})();
 
 // Lightbox: click any project image to view full size
 (function initLightbox() {
@@ -348,6 +378,12 @@ function openProject(projectId) {
             overlay.classList.add('is-active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+            if (typeof gtag === 'function') {
+                gtag('event', 'about_modal_open', {
+                    event_category: 'engagement',
+                    event_label: 'about_me_modal'
+                });
+            }
         }
 
         function close() {
