@@ -553,7 +553,14 @@ body {
     border-radius: 1px;
 }
 
+.about-modal-body {
+    position: relative;
+    isolation: isolate;
+}
+
 .about-modal-body p {
+    position: relative;
+    z-index: 1;
     font-size: 1rem;
     line-height: 1.7;
     color: #aaaaaa;
@@ -563,6 +570,263 @@ body {
 
 .about-modal-body p:last-child {
     margin-bottom: 0;
+}
+
+.about-emphasis {
+    position: relative;
+    display: inline;
+    color: #f4f4f4;
+    font-weight: 520;
+    border-radius: 0.18em;
+    outline: none;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.about-emphasis:focus-visible {
+    outline: 2px solid #D0FE05;
+    outline-offset: 3px;
+}
+
+.about-emphasis--ux {
+    color: transparent;
+    background-image: linear-gradient(100deg, #ff6b9e 0%, #ffb347 22%, #D0FE05 44%, #5ce1e6 66%, #b388ff 84%, #ff6b9e 100%);
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: about-ux-ink 7s linear infinite;
+}
+
+.about-emphasis--ux::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -0.08em;
+    right: -0.08em;
+    bottom: -0.08em;
+    height: 0.16em;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff6b9e, #D0FE05, #5ce1e6, #b388ff);
+    transform: scaleX(0.26);
+    transform-origin: left;
+    opacity: 0.55;
+    transition: transform 240ms cubic-bezier(0.23, 1, 0.32, 1), opacity 180ms ease;
+}
+
+.about-emphasis--ux:hover::after,
+.about-emphasis--ux:focus-visible::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+.about-emphasis--cs {
+    display: inline-block;
+    color: #b9eaf2;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 0.92em;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    word-spacing: -0.22em;
+    vertical-align: baseline;
+    text-shadow: 0 0 0.7em rgba(145, 232, 255, 0.12);
+    transition: color 160ms ease, text-shadow 160ms ease;
+}
+
+.about-cs-text,
+.about-cs-emoji {
+    transition: opacity 140ms ease, transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-cs-text {
+    white-space: nowrap;
+}
+
+.about-cs-emoji {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    width: 100%;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(0.18em);
+    font-family: system-ui, sans-serif;
+    font-size: 0.72em;
+    line-height: inherit;
+}
+
+.about-emphasis--cs:hover .about-cs-text,
+.about-emphasis--cs:focus-visible .about-cs-text {
+    opacity: 0;
+    transform: translateY(-0.12em);
+}
+
+.about-emphasis--cs:hover,
+.about-emphasis--cs:focus-visible {
+    color: #e1faff;
+    text-shadow: 0 0 0.8em rgba(145, 232, 255, 0.28);
+}
+
+.about-emphasis--cs:hover .about-cs-emoji,
+.about-emphasis--cs:focus-visible .about-cs-emoji {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-emphasis--systems {
+    padding: 0.02em 0.09em;
+    background-image: linear-gradient(rgba(208, 254, 5, 0.18), rgba(208, 254, 5, 0.18));
+    background-repeat: no-repeat;
+    background-size: 0% 72%;
+    background-position: 0 88%;
+    transition: background-size 520ms cubic-bezier(0.23, 1, 0.32, 1), color 180ms ease;
+}
+
+.about-emphasis--systems:hover,
+.about-emphasis--systems:focus-visible {
+    color: #ffffff;
+    background-size: 100% 72%;
+}
+
+.about-emphasis--sole {
+    display: inline-block;
+    padding-bottom: 0.02em;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: rgba(208, 254, 5, 0.78);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+}
+
+.about-sole-label {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 0.3rem);
+    padding: 0.18rem 0.32rem;
+    border: 1px solid rgba(208, 254, 5, 0.45);
+    border-radius: 3px;
+    background-color: #292929;
+    color: #D0FE05;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 0.54rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    opacity: 0;
+    transform: translate3d(-50%, 0.25rem, 0);
+    pointer-events: none;
+    transition: opacity 140ms ease, transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-emphasis--sole:hover .about-sole-label,
+.about-emphasis--sole:focus-visible .about-sole-label {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
+}
+
+.about-emphasis--travel {
+    display: inline-block;
+    isolation: isolate;
+    padding: 0 0.04em 0.08em;
+    background-image: repeating-linear-gradient(90deg, #ffb347 0 4px, transparent 4px 8px);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: 0 100%;
+}
+
+.about-travel-plane {
+    position: absolute;
+    z-index: -1;
+    left: -1.8em;
+    top: 50%;
+    color: #ffb347;
+    font-size: 1.05em;
+    line-height: 1;
+    opacity: 0;
+    filter: blur(0.15px) drop-shadow(0 0.12em 0.18em rgba(0, 0, 0, 0.5));
+    transform: translate3d(0, 0.7em, 0) rotate(-12deg) scale(0.88);
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.about-travel-label {
+    position: relative;
+    z-index: 1;
+}
+
+.about-emphasis--travel:hover .about-travel-plane,
+.about-emphasis--travel:focus-visible .about-travel-plane {
+    animation: about-travel-flight 900ms cubic-bezier(0.45, 0, 0.3, 1) both;
+}
+
+.about-emphasis--baseball {
+    display: inline-block;
+    isolation: isolate;
+}
+
+.about-baseball-label {
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid rgba(255, 107, 107, 0.75);
+}
+
+.about-baseball-ball {
+    position: absolute;
+    z-index: 0;
+    left: -1.6em;
+    top: 50%;
+    width: 1.2em;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 0;
+    background:
+        radial-gradient(circle at 34% 28%, #ffffff 0 18%, transparent 19%),
+        repeating-linear-gradient(72deg, transparent 0 3px, #d84b4b 3px 4px, transparent 4px 7px),
+        #ece9df;
+    box-shadow: 0 0.12em 0.22em rgba(0, 0, 0, 0.45);
+    transform: translate3d(0, -50%, 0) rotate(0);
+    pointer-events: none;
+}
+
+.about-emphasis--baseball:hover .about-baseball-ball,
+.about-emphasis--baseball:focus-visible .about-baseball-ball {
+    animation: about-baseball-pitch 640ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes about-ux-ink {
+    to { background-position: 220% 50%; }
+}
+
+@keyframes about-travel-flight {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0.7em, 0) rotate(-12deg) scale(0.88);
+    }
+    16% {
+        opacity: 0.82;
+    }
+    42% {
+        opacity: 0.72;
+        transform: translate3d(2.9em, -0.75em, 0) rotate(-3deg) scale(0.96);
+    }
+    70% {
+        opacity: 0.64;
+        transform: translate3d(5.6em, -1.05em, 0) rotate(5deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(8.3em, 0.25em, 0) rotate(13deg) scale(0.92);
+    }
+}
+
+@keyframes about-baseball-pitch {
+    0% { opacity: 0; transform: translate3d(-0.8em, -50%, 0) rotate(0); }
+    14% { opacity: 0.95; }
+    76% { opacity: 0.88; }
+    100% { opacity: 0; transform: translate3d(6.9em, -68%, 0) rotate(620deg); }
 }
 
 .about-modal-links {
@@ -601,6 +865,36 @@ body {
 
     .about-modal-gallery {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (hover: none) {
+    .about-emphasis--systems {
+        background-size: 100% 72%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-emphasis--ux {
+        animation: none;
+        background-position: 50% 50%;
+    }
+
+    .about-emphasis--ux::after,
+    .about-cs-text,
+    .about-cs-emoji,
+    .about-emphasis--systems,
+    .about-sole-label {
+        transition: none;
+    }
+
+    .about-travel-plane,
+    .about-baseball-ball {
+        display: none;
+    }
+
+    .about-emphasis--systems {
+        background-size: 100% 72%;
     }
 }
 
