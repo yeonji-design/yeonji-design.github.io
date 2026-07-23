@@ -1,3 +1,117 @@
+// CRT-style boot screen: signal noise resolves into the wordmark, then collapses away.
+(function initSiteLoader() {
+    var loader = document.getElementById('siteLoader');
+    var noise = document.getElementById('siteLoaderNoise');
+    if (!loader) return;
+
+    function isProjectReturn() {
+        try {
+            if (window.sessionStorage.getItem('skipHomeLoader') === 'true') {
+                window.sessionStorage.removeItem('skipHomeLoader');
+                return true;
+            }
+        } catch (storageError) {
+            // Continue with navigation/referrer detection when storage is unavailable.
+        }
+
+        var navigation = window.performance &&
+            window.performance.getEntriesByType &&
+            window.performance.getEntriesByType('navigation')[0];
+        if (navigation && navigation.type === 'back_forward') return true;
+        if (!document.referrer) return false;
+
+        try {
+            var referrer = new URL(document.referrer);
+            var current = new URL(window.location.href);
+            var projectPages = [
+                '/dag.html',
+                '/genai-registry.html',
+                '/rai-checker.html'
+            ];
+            var cameFromThisSite = referrer.origin === current.origin;
+            var cameFromProject = projectPages.some(function (page) {
+                return referrer.pathname.endsWith(page);
+            });
+            return cameFromThisSite && cameFromProject;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    if (isProjectReturn()) {
+        document.body.classList.remove('is-loading');
+        loader.remove();
+        return;
+    }
+
+    var reduceMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var startedAt = Date.now();
+    var noiseTimer = 0;
+    var noiseGlyphs = '01{}[]<>/\\|=+*:. ';
+    var revealed = false;
+
+    function drawNoise() {
+        if (!noise || reduceMotion) return;
+        var columns = Math.ceil(window.innerWidth / 8);
+        var rows = Math.ceil(window.innerHeight / 12);
+        var count = Math.min(columns * rows, 7800);
+        var output = '';
+        var index;
+
+        for (index = 0; index < count; index += 1) {
+            var showGlyph = Math.random() > 0.73;
+            output += showGlyph ?
+                noiseGlyphs.charAt(Math.floor(Math.random() * noiseGlyphs.length)) :
+                ' ';
+            if ((index + 1) % columns === 0) output += '\n';
+        }
+        noise.textContent = output;
+    }
+
+    function reveal() {
+        if (revealed) return;
+        revealed = true;
+        window.clearInterval(noiseTimer);
+        loader.classList.add('is-leaving');
+
+        window.setTimeout(function () {
+            document.body.classList.remove('is-loading');
+            loader.remove();
+        }, reduceMotion ? 220 : 620);
+    }
+
+    function revealAfterMinimum() {
+        var minimum = reduceMotion ? 120 : 1150;
+        var remaining = Math.max(0, minimum - (Date.now() - startedAt));
+        window.setTimeout(reveal, remaining);
+    }
+
+    drawNoise();
+    if (!reduceMotion) noiseTimer = window.setInterval(drawNoise, 90);
+
+    if (document.readyState === 'complete') {
+        revealAfterMinimum();
+    } else {
+        window.addEventListener('load', revealAfterMinimum, { once: true });
+        window.setTimeout(reveal, reduceMotion ? 500 : 2600);
+    }
+})();
+
+// Project-page wordmark returns to home without replaying the boot sequence.
+(function markProjectLogoReturn() {
+    var homeLogo = document.querySelector('a.header-title[href$="index.html"]');
+    if (!homeLogo) return;
+
+    homeLogo.addEventListener('click', function () {
+        try {
+            window.sessionStorage.setItem('skipHomeLoader', 'true');
+        } catch (storageError) {
+            // Referrer detection in initSiteLoader remains as the fallback.
+        }
+    });
+})();
+
 // Custom cursor: difference-blend rings, scales on links (no GSAP)
 (function initCustomCursor() {
     function shouldSkip() {
@@ -425,4 +539,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-

@@ -19,7 +19,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
 </head>
-<body data-page="home">
+<body data-page="home" class="is-loading">
+    <div class="site-loader" id="siteLoader" aria-hidden="true">
+        <pre class="site-loader__noise" id="siteLoaderNoise"></pre>
+        <div class="site-loader__signal">
+            <div class="site-loader__logo" data-text="yeonji's space">yeonji's space</div>
+            <div class="site-loader__status">
+                <span>WELCOME / ONLINE SPACE</span>
+                <span class="site-loader__status-readout">
+                    <span class="site-loader__status-checking">CHECKING ACCESS...</span>
+                    <span class="site-loader__status-approved">✓ APPROVED</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
     <!-- Header Section -->
     <header class="header">
         <div class="header-left header-title glitch" title="yeonji" style="pointer-events: none;">
@@ -159,6 +173,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=loader-5"></script>
 </body>
 </html>
