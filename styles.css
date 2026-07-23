@@ -115,8 +115,16 @@ body.is-loading {
 
 .site-loader {
     position: fixed;
-    inset: 0;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
     z-index: 10000;
+    width: calc(100vw + 2px);
+    height: calc(100vh + 2px);
+    height: calc(100dvh + 2px);
+    max-width: none;
+    max-height: none;
     display: grid;
     place-items: center;
     overflow: hidden;
@@ -157,11 +165,18 @@ body.is-loading {
 .site-loader__noise {
     position: absolute;
     inset: -1rem;
+    width: calc(100% + 2rem);
+    height: calc(100% + 2rem);
+    min-width: calc(100vw + 2rem);
+    min-height: calc(100vh + 2rem);
+    min-height: calc(100dvh + 2rem);
+    margin: 0;
     overflow: hidden;
     color: rgba(255, 255, 255, 0.095);
     font: 400 10px/1.25 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     letter-spacing: 0.14em;
     white-space: pre-wrap;
+    overflow-wrap: anywhere;
     word-break: break-all;
     user-select: none;
 }

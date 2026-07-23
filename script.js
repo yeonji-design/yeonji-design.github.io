@@ -53,9 +53,11 @@
 
     function drawNoise() {
         if (!noise || reduceMotion) return;
-        var columns = Math.ceil(window.innerWidth / 8);
-        var rows = Math.ceil(window.innerHeight / 12);
-        var count = Math.min(columns * rows, 7800);
+        // Intentionally overfill both axes: font metrics and letter-spacing vary
+        // slightly by browser, and the noise layer clips any excess.
+        var columns = Math.ceil((loader.clientWidth + 64) / 5);
+        var rows = Math.ceil((loader.clientHeight + 64) / 9);
+        var count = columns * rows;
         var output = '';
         var index;
 
@@ -73,6 +75,7 @@
         if (revealed) return;
         revealed = true;
         window.clearInterval(noiseTimer);
+        window.removeEventListener('resize', drawNoise);
         loader.classList.add('is-leaving');
 
         window.setTimeout(function () {
@@ -88,7 +91,10 @@
     }
 
     drawNoise();
-    if (!reduceMotion) noiseTimer = window.setInterval(drawNoise, 90);
+    if (!reduceMotion) {
+        noiseTimer = window.setInterval(drawNoise, 90);
+        window.addEventListener('resize', drawNoise, { passive: true });
+    }
 
     if (document.readyState === 'complete') {
         revealAfterMinimum();
