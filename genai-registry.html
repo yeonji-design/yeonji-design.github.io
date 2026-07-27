@@ -58,11 +58,11 @@
                     <div class="project-section-heading">
                         <h2>Overview</h2>
                     </div>
-                    <p>Over 7,600 GenAI use cases have been registered through this platform — one that didn't exist before I designed it. In 2023, Intuit's product teams were racing to ship GenAI features into TurboTax, QuickBooks, and Mailchimp with no governance process, no single contact for legal or security sign-off, and 20 program managers tracking compliance in spreadsheets. I designed the system that replaced all of that: <span class="text-highlight">a centralized hub where teams register use cases, connect to GenAI capabilities, track review status, and launch responsibly.</span></p>
+                    <p>In 2023, Intuit's product teams were racing to ship GenAI features into TurboTax, QuickBooks, and Mailchimp with no governance process, no single contact for legal or security sign-off, and 20 program managers tracking details in spreadsheets. I designed the system that replaced all of that: a centralized hub where teams register use cases, connect to GenAI capabilities, track review status, and launch responsibly.</p>
                     <div class="project-meta">
                         <div class="project-meta-item">
                             <span class="project-meta-label">My Role</span>
-                            <span class="project-meta-value">Product Designer</span>
+                            <span class="project-meta-value">Lead Product Designer</span>
                         </div>
                         <div class="project-meta-item">
                             <span class="project-meta-label">Timeline</span>
@@ -73,8 +73,9 @@
                             <span class="project-meta-value">1 PM, 6 Engineers</span>
                         </div>
                         <div class="project-meta-item">
-                            <span class="project-meta-label">Tools</span>
-                            <span class="project-meta-value">Figma</span>
+                            <span class="project-meta-label">Impact</span>
+                            <span class="project-meta-value">7,600+ GenAI use cases registered</span>
+                            <span class="project-meta-value">Time taken for launch readiness reduced from 9 weeks to 3 weeks</span>
                         </div>
                     </div>
                 </div>
@@ -202,44 +203,6 @@
                     </figure>
                     </div>
                 </div>
-                <div class="project-section">
-                    <div class="project-section-heading">
-                        <p class="project-section-caption">My Process</p>
-                        <h2>Moving fast in ambiguous territory</h2>
-                    </div>
-                    <p>This project had no clear precedent internally. GenAI governance frameworks were still being written industry-wide, and I was designing a system before the rules were fully defined. My first priority was understanding who was in pain and what the minimum viable process needed to look like.</p>
-                    <h3 class="project-subheading">Stakeholder mapping</h3>
-                    <p>After talking to 30+ stakeholders, I identified four distinct user groups with conflicting needs. Designing for all four without creating a bloated product was the central challenge.</p>
-                    
-                    <div class="genai-stakeholder-table-wrap">
-                        <table class="genai-stakeholder-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Product Team</th>
-                                    <th scope="col">Reviewers</th>
-                                    <th scope="col">Program Managers</th>
-                                    <th scope="col">Platform Team</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Speed and clarity: ship GenAI features without guessing who to contact or what to do next.</td>
-                                    <td>Structured, complete submissions from teams, not ad-hoc threads or half-filled requests.</td>
-                                    <td>Visibility and control when tracking dozens or hundreds of use cases across the company.</td>
-                                    <td>Self-serve onboarding to GenAI capabilities and guardrails teams can rely on at scale.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                                           
-                    <h3 class="project-subheading">Discovery with program managers</h3>
-                    <p>The program managers were the most acute pain point. I ran working sessions with them to map their current process step by step: what they tracked, where information lived, and how they followed up. This gave me a clear picture of what the system needed to replace.</p>
-                    
-                    <h3 class="project-subheading">The most important decision wasn't a UI decision</h3>
-                    <p>The review form required product teams to answer detailed legal, security, and AI questions — with version history, comment threads, document attachments, and collaborative editing over time. Building this natively would have consumed months of engineering time we didn't have. I evaluated third-party review tools and <span class="text-highlight">proposed integrating an existing platform via API</span> instead of building from scratch.</p>
-                    <p>This was a rare case where the right design call was to <span class="text-highlight">not design something</span>. The tradeoff: some visual inconsistency. The gain: we shipped the full end-to-end experience in weeks instead of months, and focused engineering entirely on what only we could build — intake, routing, and status visibility.</p>
-                    
-                </div>
 
                 <div class="project-section">
                     <div class="project-section-heading">
@@ -362,18 +325,48 @@
                         <h2>Keeping complexity on the system's side, not the user's</h2>
                     </div>
                     <div class="genai-decisions">
-                        <div class="genai-decision">
-                            <h3 class="project-subheading">Decision 1: Don't build the review form natively</h3>
-                            <p>The temptation was to design a fully custom form experience inside the hub. I pushed back on this. The review form needed version history, comment threads, document attachments, and collaborative editing, all features that would take months to build well. Using a third-party tool via API let us <span class="text-highlight">focus engineering resources on the parts only we could build: intake, routing, and status visibility.</span> The tradeoff was some loss of visual consistency, but product teams already used the third-party tool in other contexts, which reduced friction.</p>
-                        </div>
-                        <div class="genai-decision">
-                            <h3 class="project-subheading">Decision 2: One hub, not separate tools per audience</h3>
-                            <p>Early conversations surfaced a suggestion to build separate interfaces for reviewers vs. product teams. I argued against this; a single hub with role-based views would reduce fragmentation and <span class="text-highlight">give program managers a unified view across all use cases.</span> The shared surface also made it easier to add future use case types without rebuilding.</p>
-                        </div>
-                        <div class="genai-decision">
-                            <h3 class="project-subheading">Decision 3: Registration as orientation, not just intake</h3>
-                            <p>The old flow had a painful failure mode: teams would build a GenAI feature, then discover at launch that they needed legal and security sign-off and get blocked. I designed <span class="text-highlight">registration to happen before building</span> and the use case page generated on registration to act as that feature's orientation hub. <span class="text-highlight">From day one, teams see the full process ahead:</span> what reviews are required, what resources exist, and what their next steps are. The goal wasn't to fix 'teams don't know.' It was to design a structure where not knowing isn't possible.</p>
-                        </div>
+                        <article class="genai-decision">
+                            <div class="genai-decision-marker" aria-hidden="true">
+                                <span>01</span>
+                            </div>
+                            <div class="genai-decision-content">
+                                <p class="genai-decision-label">Build vs. integrate</p>
+                                <h3>Don't build the review form natively</h3>
+                                <p class="genai-decision-lead">Use a third-party tool via API, and focus our engineering effort on the parts only we could build: <span class="text-highlight">intake, routing, and status visibility.</span></p>
+                                <div class="genai-decision-detail">
+                                    <p>Users were not a fan of the native form that I initially designed. They wanted the review form to have version history, comment threads and collaborative editing, all features that were already available in Google Docs. And it would take months for engineering to build them all.</p>
+                                    <p><span class="genai-decision-note">Tradeoff</span> We accepted some loss of visual consistency and friction to hop from our platform to an external platform. But it kept a review space for reviewers and product teams to communicate with full features which kept that friction low.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="genai-decision">
+                            <div class="genai-decision-marker" aria-hidden="true">
+                                <span>02</span>
+                            </div>
+                            <div class="genai-decision-content">
+                                <p class="genai-decision-label">Shared surface</p>
+                                <h3>One hub, not separate tools per audience</h3>
+                                <p class="genai-decision-lead">A single hub with role-based views would reduce fragmentation and <span class="text-highlight">give program managers a unified view across all use cases.</span></p>
+                                <div class="genai-decision-detail">
+                                    <p>Early conversations surfaced a suggestion to build separate interfaces for product teams and others. A shared surface kept everyone in the same system while tailoring what each role needed to see.</p>
+                                    <p><span class="genai-decision-note">Shared visibility</span> Reviewers, program managers, and partner teams could view a use case without changing it, knowing they were always seeing the latest status and details.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="genai-decision">
+                            <div class="genai-decision-marker" aria-hidden="true">
+                                <span>03</span>
+                            </div>
+                            <div class="genai-decision-content">
+                                <p class="genai-decision-label">Timing and guidance</p>
+                                <h3>Registration as orientation, not just intake</h3>
+                                <p class="genai-decision-lead">Move registration before building, so <span class="text-highlight">teams see the full process ahead from day one</span>: required reviews, available resources, and next steps.</p>
+                                <div class="genai-decision-detail">
+                                    <p>The old flow failed late. Teams would finish a GenAI feature, then discover at launch that legal and security sign-off could block them.</p>
+                                    <p><span class="genai-decision-note">Design principle</span> The goal wasn't to fix “teams don't know.” It was to design a structure where not knowing isn't possible.</p>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
 
@@ -390,7 +383,7 @@
                         </div>
                         <div class="next-step-item">
                             <span class="next-step-num">02</span>
-                            <span class="next-step-text">Time taken for launch readiness reduced from 8 weeks to 2 weeks</span>
+                            <span class="next-step-text">Time taken for launch readiness reduced from 9 weeks to 3 weeks</span>
                         </div>
                         <div class="next-step-item">
                             <span class="next-step-num">03</span>
