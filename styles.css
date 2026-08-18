@@ -34,8 +34,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .projects-heading {
-    font-family: Aspekta Variable, sans-serif;
-    font-weight: 500;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 400;
 }
 
 .project-title {
@@ -541,11 +541,19 @@ body.is-loading {
     width: 100%;
 }
 
-.intro-text, .experience-text {
+.intro-text{
+    font-size: 1.0rem;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+    color: #eaeaea;
+    font-weight: 300;
+}
+
+.experience-text {
     font-size: 0.9rem;
     line-height: 1.7;
     margin-bottom: 0.5rem;
-    color: #aaaaaa;
+    color: #cccccc;
     font-weight: 300;
 }
 
@@ -576,7 +584,7 @@ body.is-loading {
 }
 
 .company-link {
-    --company-link-muted: #aaaaaa;
+    --company-link-muted: #cccccc;
     --company-link-highlight: #D0FE05;
     text-decoration: underline;
     text-decoration-thickness: 1px;
@@ -1171,14 +1179,13 @@ body.is-loading {
 }
 
 .projects-heading {
-    font-style: italic;
     font-size: 0.9rem;
     font-weight: 400;
     margin-bottom: 0.5rem;
     color: #D0FE05;
     text-align: left;
     width: 100%;
-    font-family: Aspekta Variable, sans-serif;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 .projects-grid {
@@ -1261,7 +1268,7 @@ body.is-loading {
 .project-title {
     font-size: 0.9rem;
     font-weight: 400;
-    color: #aaaaaa;
+    color: #cccccc;
     line-height: 1.4;
     font-family: Aspekta Variable, sans-serif;
     margin: 0;
